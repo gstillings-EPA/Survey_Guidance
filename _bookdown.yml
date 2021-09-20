@@ -5,4 +5,4 @@ edit: https://github.com/gstillings-EPA/Survey_Guidance/edit/master/%s
 view: https://github.com/gstillings-EPA/Survey_Guidance/blob/master/%s
 language:
   ui:
-    chapter_name: "Chapter "
+    chapter_name: "Section "
