@@ -1,0 +1,47 @@
+# Weights
+
+Implementing a GRTS survey design, assists in spatially balancing sampling sites.
+
+
+
+To correct for bias , survey weights should be used. 
+
+
+Statistically, the survey weights re-balance the dataset so that the sampled dataset represents the target population  
+
+
+
+
+
+
+
+
+
+Sampling weights are intended to correct for systematic differences in probability sampling.
+
+Sampling weights, also known as survey weights, are positive values associated with the observations (rows) in your dataset (sample), used to ensure that metrics derived from a data set are representative of the population (the set of observations).
+
+Survey sampling is frequently used to reduce the cost or effort to survey an entire population. Surveying an entire population is called a census. Ideally, a sample is perfectly reflective of the population. However, this is often not the case due to various sources of sampling bias. Sampling weights are intended to correct for systematic differences in probability sampling.
+Why wouldn’t a survey sample reflect the population it was drawn from?
+
+Some respondents are systematically less likely to respond to or participate in a survey. This is called the participation or non-response bias.
+Some segments of the population may not be included in a survey sample’s frame. A traditional example of this is seen in telephone surveys, they cannot access homes that do not have a telephone. This effect is called a coverage bias, or non-coverage.
+
+
+
+
+Some respondents may have a differing probability of being selected. An example of this would be a telephone survey where a household has more than one phone line. This is called selection bias.
+Certain individuals may be more likely to select themselves into a group, this is calledself-selection bias.
+Some sampling designs, such as stratified sampling or cluster sampling, can cause certain features to have a higher probability of selection than others.
+
+This can be set up so that key variables of interest (e.g., age, race, sex) are intentionally more selected (oversampled) to allow researchers to measure with more prediction changes in key populations.
+Sampling weights are intended to compensate for the selection of specific observations with unequal probabilities (oversampling), non-coverage, non-responses, and other types of bias. 
+
+
+If a biased data set is not adjusted, population descriptors (e.g., mean, median) will be skewed and fail to correctly represent the population’s proportion to the population.
+
+Statistically, the sampling weights re-balance the data set so that the sampled data set represents the target population as closely as reasonably possible. Sampling weights are often the reciprocalof the likelihood of being sampled (i.e., selection probability) of the sampling unit. For example, if you have selected 200 goldfish out of a population of 1000, the reciprocal of the likelihood of being selected is 1000/200, so the sampling weight for the goldfish would be 5.
+
+Sampling weights are important for survey data, particularly when calculating summary statistics (e.g., mean, median, or proportions). The relevance of using weights in data science models (e.g., linear or logistic regression modeling) is less clear, particularly when the models include controls for the variables used in weight construction.
+
+Ultimately, the decision to weight will depend on your sampling design, sampled data set, and industry knowledge of your use case. Your best friend for understanding how biases may be present in your data set will be performing data investigation. At a minimum, you should always include potential sources of bias (such as a non-response rate, or if key variables (e.g., income) are disproportionately represented as non-responses) in your reported findings. If you choose to use sampling weights in your analysis, document how your weights were derived and how they were applied.

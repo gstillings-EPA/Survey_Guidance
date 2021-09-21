@@ -1,0 +1,21 @@
+# Background {-}
+
+## Statistical Survey {-}
+Ideally, an organization would survey an entire population, otherwise known as a census, to perfectly reflect the condition of a resource. However, this is rarely possible and organizations are forced to implement a Statistical Survey (Probabilistic) Design to randomly select a subset of the population to reduce the cost and effort. When implemented correctly, a statistical survey can be an effective method for assessing the condition of a broad population with a known confidence.
+
+
+## National Aquatic Resource Surveys {-}
+The Environmental Protection Agency (EPA) has utilized statistical survey designs in the National Aquatic Resource Surveys (NARS). NARS provides statistically valid national assessments of the condition of the nation’s waters (streams and rivers, lakes, coastal waters, and wetlands). 
+
+
+## Monitoring Initiative Funds {-}
+Monitoring Initiative funds are allocated to states, eligible interstate agencies, and eligible tribes using a formula that targets funds to enhance monitoring strategies and develop statistically valid reports on water condition. EPA, states and other partners collaborate to design the National Aquatic Resource Surveys, which cover the continental United States. For each sampling site selected through the survey design that falls within their jurisdiction, a state, eligible interstate agency, or eligible tribe receives approximately $8,000. Alaska, Hawaii, and the territories are not included in the National Aquatic Resource Surveys but receive some of this funding for statistical survey projects.
+
+The requirements for receiving monitoring initiative funds are:
+
+1. Implementing a statistical survey design that provides condition estimates for a population of waters (e.g., streams, rivers, lakes, coastal waters, or wetlands) of the state based on an unbiased, representative sample of a subset of those waters. If they choose not to they must describe the program capacity development activities they are proposing and link them to their monitoring strategy.
+
+2. Participate in the national/regional scale surveys (which may just be agreement to receive in-kind assistance).
+
+3. Report the results of the states scale survey, preferably as a component of the state’s Integrated Report (narrative form) and/or in the probability survey module of ATTAINS.
+

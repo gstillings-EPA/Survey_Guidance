@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Guidance for Implementing a Statistical Survey</title>
-  <meta name="description" content="Guidance for Implementing a Statistical Survey" />
+  <title>Statistical Survey | Guidance for Implementing a Statistical Survey</title>
+  <meta name="description" content="Statistical Survey | Guidance for Implementing a Statistical Survey" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Guidance for Implementing a Statistical Survey" />
+  <meta property="og:title" content="Statistical Survey | Guidance for Implementing a Statistical Survey" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Guidance for Implementing a Statistical Survey" />
+  <meta name="twitter:title" content="Statistical Survey | Guidance for Implementing a Statistical Survey" />
   
   
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="background.html"/>
+<link rel="prev" href="index.html"/>
+<link rel="next" href="monitoring-initiative-funds.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -74,16 +74,11 @@
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
-<li class="chapter" data-level="" data-path="background.html"><a href="background.html"><i class="fa fa-check"></i>Background</a>
-<ul>
-<li class="chapter" data-level="" data-path="background.html"><a href="background.html#statistical-survey"><i class="fa fa-check"></i>Statistical Survey</a></li>
-<li class="chapter" data-level="" data-path="background.html"><a href="background.html#national-aquatic-resource-surveys"><i class="fa fa-check"></i>National Aquatic Resource Surveys</a></li>
-<li class="chapter" data-level="" data-path="background.html"><a href="background.html#monitoring-initiative-funds"><i class="fa fa-check"></i>Monitoring Initiative Funds</a></li>
-</ul></li>
-<li class="chapter" data-level="1" data-path="designing-a-survey.html"><a href="designing-a-survey.html"><i class="fa fa-check"></i><b>1</b> Designing a Survey</a></li>
-<li class="chapter" data-level="2" data-path="weights.html"><a href="weights.html"><i class="fa fa-check"></i><b>2</b> Weights</a></li>
-<li class="chapter" data-level="3" data-path="condition-estimates.html"><a href="condition-estimates.html"><i class="fa fa-check"></i><b>3</b> Condition Estimates</a></li>
-<li class="chapter" data-level="4" data-path="visualization.html"><a href="visualization.html"><i class="fa fa-check"></i><b>4</b> Visualization</a></li>
+<li class="chapter" data-level="" data-path="statistical-survey.html"><a href="statistical-survey.html"><i class="fa fa-check"></i>Statistical Survey</a></li>
+<li class="chapter" data-level="" data-path="monitoring-initiative-funds.html"><a href="monitoring-initiative-funds.html"><i class="fa fa-check"></i>Monitoring Initiative Funds</a></li>
+<li class="chapter" data-level="1" data-path="the-pool-of-tears.html"><a href="the-pool-of-tears.html"><i class="fa fa-check"></i><b>1</b> The pool of tears</a></li>
+<li class="chapter" data-level="2" data-path="a-caucus-race-and-a-long-tale.html"><a href="a-caucus-race-and-a-long-tale.html"><i class="fa fa-check"></i><b>2</b> A caucus-race and a long tale</a></li>
+<li class="chapter" data-level="3" data-path="weights.html"><a href="weights.html"><i class="fa fa-check"></i><b>3</b> Weights</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 </ul>
@@ -103,30 +98,19 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Guidance for Implementing a Statistical Survey</h1>
-<p class="author"><em>Garrett Stillings</em></p>
-<p class="date"><em>2021-09-21</em></p>
-</div>
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
-<p>This document is intended to be an introductory guide to assist EPA partners which are interested in implementing a statistical survey in their monitoring program to assess the condition of an aquatic resource (rivers and streams, lakes, wetlands, coasts). The guide will follow procedures available in the R package <a href="https://github.com/USEPA/spsurvey"><em>spsurvey</em></a> and R code to implement most stages of a statistical survey process. To assist non-R users, the guide will also offer screenshots of available R shiny applications which do not require coding experience. These applications are housed on an EPA server and can be accessed using an internet browser.</p>
-<p>Topics which will be covered in this document include:</p>
-<ol style="list-style-type: decimal">
-<li><strong>Statistical Survey Design</strong></li>
-<li><strong>Sampling Weights</strong></li>
-<li><strong>Condition Estimates of a Population</strong></li>
-<li><strong>Visualizing Estimates</strong></li>
-</ol>
-
+<div id="statistical-survey" class="section level1 unnumbered">
+<h1>Statistical Survey</h1>
+<p>Ideally, an organization would survey an entire population, otherwise known as a census, to perfectly reflect the condition of a resource. However, this is rarely possible and organizations are forced to implement a Statistical Survey (Probabilistic) Design to randomly select a subset of the population to reduce the cost and effort. When implemented correctly, a statistical survey can be an effective method for assessing the condition of a broad population.</p>
+<p>#National Aquatic Resource Surveys {-}
+The Environmental Protection Agency (EPA) has utilized statistical survey designs in the National Aquatic Resource Surveys (NARS). NARS provides statistically valid national assessments of the condition of the nation’s waters (streams and rivers, lakes, coastal waters, and wetlands).</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="background.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="monitoring-initiative-funds.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

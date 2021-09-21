@@ -1,9 +1,21 @@
 --- 
-title: "Guidance for Implementing a State Scale Statistical Survey"
+title: "Guidance for Implementing a Statistical Survey"
 author: "Garrett Stillings"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 ---
 
-# Overview
+# Preface {-}
+
+This document is intended to be an introductory guide to assist EPA partners which are interested in implementing a statistical survey in their monitoring program to assess the condition of an aquatic resource (rivers and streams, lakes, wetlands, coasts). The guide will follow procedures available in the R package [*spsurvey*](https://github.com/USEPA/spsurvey) and R code to implement most stages of a statistical survey process. To assist non-R users, the guide will also offer screenshots of available R shiny applications which do not require coding experience. These applications are housed on an EPA server and can be accessed using an internet browser.
+
+Topics which will be covered in this document include: 
+
+1. __Statistical Survey Design__
+2. __Sampling Weights__
+3. __Condition Estimates of a Population__
+4. __Visualizing Estimates__
+
+
+
 

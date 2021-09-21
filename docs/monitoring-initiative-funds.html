@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Guidance for Implementing a Statistical Survey</title>
-  <meta name="description" content="Guidance for Implementing a Statistical Survey" />
+  <title>Monitoring Initiative Funds | Guidance for Implementing a Statistical Survey</title>
+  <meta name="description" content="Monitoring Initiative Funds | Guidance for Implementing a Statistical Survey" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Guidance for Implementing a Statistical Survey" />
+  <meta property="og:title" content="Monitoring Initiative Funds | Guidance for Implementing a Statistical Survey" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Guidance for Implementing a Statistical Survey" />
+  <meta name="twitter:title" content="Monitoring Initiative Funds | Guidance for Implementing a Statistical Survey" />
   
   
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="background.html"/>
+<link rel="prev" href="statistical-survey.html"/>
+<link rel="next" href="the-pool-of-tears.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -74,16 +74,11 @@
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
-<li class="chapter" data-level="" data-path="background.html"><a href="background.html"><i class="fa fa-check"></i>Background</a>
-<ul>
-<li class="chapter" data-level="" data-path="background.html"><a href="background.html#statistical-survey"><i class="fa fa-check"></i>Statistical Survey</a></li>
-<li class="chapter" data-level="" data-path="background.html"><a href="background.html#national-aquatic-resource-surveys"><i class="fa fa-check"></i>National Aquatic Resource Surveys</a></li>
-<li class="chapter" data-level="" data-path="background.html"><a href="background.html#monitoring-initiative-funds"><i class="fa fa-check"></i>Monitoring Initiative Funds</a></li>
-</ul></li>
-<li class="chapter" data-level="1" data-path="designing-a-survey.html"><a href="designing-a-survey.html"><i class="fa fa-check"></i><b>1</b> Designing a Survey</a></li>
-<li class="chapter" data-level="2" data-path="weights.html"><a href="weights.html"><i class="fa fa-check"></i><b>2</b> Weights</a></li>
-<li class="chapter" data-level="3" data-path="condition-estimates.html"><a href="condition-estimates.html"><i class="fa fa-check"></i><b>3</b> Condition Estimates</a></li>
-<li class="chapter" data-level="4" data-path="visualization.html"><a href="visualization.html"><i class="fa fa-check"></i><b>4</b> Visualization</a></li>
+<li class="chapter" data-level="" data-path="statistical-survey.html"><a href="statistical-survey.html"><i class="fa fa-check"></i>Statistical Survey</a></li>
+<li class="chapter" data-level="" data-path="monitoring-initiative-funds.html"><a href="monitoring-initiative-funds.html"><i class="fa fa-check"></i>Monitoring Initiative Funds</a></li>
+<li class="chapter" data-level="1" data-path="the-pool-of-tears.html"><a href="the-pool-of-tears.html"><i class="fa fa-check"></i><b>1</b> The pool of tears</a></li>
+<li class="chapter" data-level="2" data-path="a-caucus-race-and-a-long-tale.html"><a href="a-caucus-race-and-a-long-tale.html"><i class="fa fa-check"></i><b>2</b> A caucus-race and a long tale</a></li>
+<li class="chapter" data-level="3" data-path="weights.html"><a href="weights.html"><i class="fa fa-check"></i><b>3</b> Weights</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 </ul>
@@ -103,21 +98,13 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Guidance for Implementing a Statistical Survey</h1>
-<p class="author"><em>Garrett Stillings</em></p>
-<p class="date"><em>2021-09-21</em></p>
-</div>
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
-<p>This document is intended to be an introductory guide to assist EPA partners which are interested in implementing a statistical survey in their monitoring program to assess the condition of an aquatic resource (rivers and streams, lakes, wetlands, coasts). The guide will follow procedures available in the R package <a href="https://github.com/USEPA/spsurvey"><em>spsurvey</em></a> and R code to implement most stages of a statistical survey process. To assist non-R users, the guide will also offer screenshots of available R shiny applications which do not require coding experience. These applications are housed on an EPA server and can be accessed using an internet browser.</p>
-<p>Topics which will be covered in this document include:</p>
-<ol style="list-style-type: decimal">
-<li><strong>Statistical Survey Design</strong></li>
-<li><strong>Sampling Weights</strong></li>
-<li><strong>Condition Estimates of a Population</strong></li>
-<li><strong>Visualizing Estimates</strong></li>
-</ol>
+<div id="monitoring-initiative-funds" class="section level1 unnumbered">
+<h1>Monitoring Initiative Funds</h1>
+<p>Monitoring Initiative funds are allocated to states, eligible interstate agencies, and eligible tribes using a formula that targets funds to enhance monitoring strategies and develop statistically valid reports on water condition. EPA, states and other partners collaborate to design the National Aquatic Resource Surveys, which cover the continental United States. For each sampling site selected through the survey design that falls within their jurisdiction, a state, eligible interstate agency, or eligible tribe receives approximately $8,000. Alaska, Hawaii, and the territories are not included in the National Aquatic Resource Surveys but receive some of this funding for statistical survey projects.</p>
+<p>As a reminder, the requirements are listed here:
+1. They are implementing a statistical survey design that provides condition estimates for a population of waters (e.g., streams, rivers, lakes, coastal waters, or wetlands) of the state based on an unbiased, representative sample of a subset of those waters. If they choose not to they must describe the program capacity development activities they are proposing and link them to their monitoring strategy.
+2. They will continue to participate in the national/regional scale surveys (which may just be agreement to receive in-kind assistance);
+3. They will report the results of the statescale survey, preferably as a component of the state’s Integrated Report (narrative form) and/or in the probability survey module of ATTAINs.</p>
 
 </div>
             </section>
@@ -125,8 +112,8 @@
           </div>
         </div>
       </div>
-
-<a href="background.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="statistical-survey.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="the-pool-of-tears.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

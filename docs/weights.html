@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Guidance for Implementing a Statistical Survey</title>
-  <meta name="description" content="Guidance for Implementing a Statistical Survey" />
+  <title>2 Weights | Guidance for Implementing a Statistical Survey</title>
+  <meta name="description" content="2 Weights | Guidance for Implementing a Statistical Survey" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Guidance for Implementing a Statistical Survey" />
+  <meta property="og:title" content="2 Weights | Guidance for Implementing a Statistical Survey" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Guidance for Implementing a Statistical Survey" />
+  <meta name="twitter:title" content="2 Weights | Guidance for Implementing a Statistical Survey" />
   
   
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="background.html"/>
+<link rel="prev" href="designing-a-survey.html"/>
+<link rel="next" href="condition-estimates.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -103,21 +103,26 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Guidance for Implementing a Statistical Survey</h1>
-<p class="author"><em>Garrett Stillings</em></p>
-<p class="date"><em>2021-09-21</em></p>
-</div>
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
-<p>This document is intended to be an introductory guide to assist EPA partners which are interested in implementing a statistical survey in their monitoring program to assess the condition of an aquatic resource (rivers and streams, lakes, wetlands, coasts). The guide will follow procedures available in the R package <a href="https://github.com/USEPA/spsurvey"><em>spsurvey</em></a> and R code to implement most stages of a statistical survey process. To assist non-R users, the guide will also offer screenshots of available R shiny applications which do not require coding experience. These applications are housed on an EPA server and can be accessed using an internet browser.</p>
-<p>Topics which will be covered in this document include:</p>
-<ol style="list-style-type: decimal">
-<li><strong>Statistical Survey Design</strong></li>
-<li><strong>Sampling Weights</strong></li>
-<li><strong>Condition Estimates of a Population</strong></li>
-<li><strong>Visualizing Estimates</strong></li>
-</ol>
+<div id="weights" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Weights</h1>
+<p>Implementing a GRTS survey design, assists in spatially balancing sampling sites.</p>
+<p>To correct for bias , survey weights should be used.</p>
+<p>Statistically, the survey weights re-balance the dataset so that the sampled dataset represents the target population</p>
+<p>Sampling weights are intended to correct for systematic differences in probability sampling.</p>
+<p>Sampling weights, also known as survey weights, are positive values associated with the observations (rows) in your dataset (sample), used to ensure that metrics derived from a data set are representative of the population (the set of observations).</p>
+<p>Survey sampling is frequently used to reduce the cost or effort to survey an entire population. Surveying an entire population is called a census. Ideally, a sample is perfectly reflective of the population. However, this is often not the case due to various sources of sampling bias. Sampling weights are intended to correct for systematic differences in probability sampling.
+Why wouldn’t a survey sample reflect the population it was drawn from?</p>
+<p>Some respondents are systematically less likely to respond to or participate in a survey. This is called the participation or non-response bias.
+Some segments of the population may not be included in a survey sample’s frame. A traditional example of this is seen in telephone surveys, they cannot access homes that do not have a telephone. This effect is called a coverage bias, or non-coverage.</p>
+<p>Some respondents may have a differing probability of being selected. An example of this would be a telephone survey where a household has more than one phone line. This is called selection bias.
+Certain individuals may be more likely to select themselves into a group, this is calledself-selection bias.
+Some sampling designs, such as stratified sampling or cluster sampling, can cause certain features to have a higher probability of selection than others.</p>
+<p>This can be set up so that key variables of interest (e.g., age, race, sex) are intentionally more selected (oversampled) to allow researchers to measure with more prediction changes in key populations.
+Sampling weights are intended to compensate for the selection of specific observations with unequal probabilities (oversampling), non-coverage, non-responses, and other types of bias.</p>
+<p>If a biased data set is not adjusted, population descriptors (e.g., mean, median) will be skewed and fail to correctly represent the population’s proportion to the population.</p>
+<p>Statistically, the sampling weights re-balance the data set so that the sampled data set represents the target population as closely as reasonably possible. Sampling weights are often the reciprocalof the likelihood of being sampled (i.e., selection probability) of the sampling unit. For example, if you have selected 200 goldfish out of a population of 1000, the reciprocal of the likelihood of being selected is 1000/200, so the sampling weight for the goldfish would be 5.</p>
+<p>Sampling weights are important for survey data, particularly when calculating summary statistics (e.g., mean, median, or proportions). The relevance of using weights in data science models (e.g., linear or logistic regression modeling) is less clear, particularly when the models include controls for the variables used in weight construction.</p>
+<p>Ultimately, the decision to weight will depend on your sampling design, sampled data set, and industry knowledge of your use case. Your best friend for understanding how biases may be present in your data set will be performing data investigation. At a minimum, you should always include potential sources of bias (such as a non-response rate, or if key variables (e.g., income) are disproportionately represented as non-responses) in your reported findings. If you choose to use sampling weights in your analysis, document how your weights were derived and how they were applied.</p>
 
 </div>
             </section>
@@ -125,8 +130,8 @@
           </div>
         </div>
       </div>
-
-<a href="background.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="designing-a-survey.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="condition-estimates.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -157,7 +162,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/gstillings-EPA/Survey_Guidance/edit/master/index.Rmd",
+"link": "https://github.com/gstillings-EPA/Survey_Guidance/edit/master/04-weights.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -165,7 +170,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/gstillings-EPA/Survey_Guidance/blob/master/index.Rmd",
+"link": "https://github.com/gstillings-EPA/Survey_Guidance/blob/master/04-weights.Rmd",
 "text": null
 },
 "download": null,
