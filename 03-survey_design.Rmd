@@ -1,1 +1,125 @@
 # Designing a Survey
+
+__Define the Target Population__
+In designing an aquatic resource monitoring survey, the designer must define what aquatic resource is to be monitored, otherwise known as the __Target Population__. For example, if the designer only has an interest in assessing the condition of perennial waters in a state, the target population is defined as perennial waters and intermittent and ephemeral waters are defined as non-target populations and are omitted from the selection process. The target population should align with your organizations monitoring strategy and objectives. 
+
+
+__Select a Sample Frame of the Target Population__
+Next, the designer must select a __Sample Frame__ to use when selecting potential sampling sites. A sample frame is a GIS representation (e.g. shapefile) of the aquatic resource target population such as [*National Hydrography Datasets*](https://www.usgs.gov/core-science-systems/ngp/national-hydrography). In the example above, the designer will select a dataset which only includes perennial waters. This process often involves extracting a subset of a dataset which contains non-target resources. 
+
+Once the target population has been defined and a sample frame of the target population has been selected, the designer can now prepare survey. The code below shows how a survey was designed using a population of lakes in the Northeast US. This sample frame is found in the spsurvey package and is not meant for use other than as an example.
+
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+#Load the spsurvey package
+library(spsurvey)
+
+#Plot NE_Lakes 
+plot(NE_Lakes, 
+     pch = 19,
+     main= "NE Lakes",
+     key.width = lcm(3))
+```
+
+__NOTE__ To upload your own sample frame, you may use the code below to read a file as an sf_object which is required by spsurvey to design a survey.
+
+```{r, echo=TRUE, eval=FALSE}
+library(sf)
+
+#Example to read a shapefile
+my_sample_frame <- st_read("path to my sample frame.shp")
+```
+
+For a state scale monitoring survey, it is generally accepted that sampling 50 sites gives sufficient confidence when calculating condition estimates. This sample size can vary depending on the size of the sample frame. Below we prepare an unstratified equal probability survey in which all lakes in the sample frame have the same chance of being selected regardless of size or other attributes.
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+
+EQ_PROB <- grts(
+  NE_Lakes,
+  n_base = 50
+)
+
+plot(
+  EQ_PROB,
+  NE_Lakes,
+  main= "Base Sample Sites",
+  pch = 19,
+  key.width = lcm(3)
+)
+
+```
+
+Above, the plot displays the survey sites selected within the sample frame. Use the function __sprbind()__ to obtain the information about each survey site. 
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+#Binds survey site 
+EQ_PROB_INFO <- sprbind(EQ_PROB)
+
+#View the first 5 rows
+head(EQ_PROB_INFO, 5)
+```
+
+
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+library(dplyr)
+
+#Creates an sframe object of northeast lakes found in the spsurvey package
+NE_Lakes <- sframe(NE_Lakes)
+
+#Plot NE_Lakes stratified by Area Category
+plot(NE_Lakes, 
+     formula = ~ AREA_CAT,
+     main= "NE Lakes by Area Category",
+     pch = 19,
+     key.width = lcm(3))
+
+#Summarize NE_lakes by Area Category
+summary <- summary(NE_Lakes, formula = ~ AREA_CAT)
+
+#Calculate proportion of Large and Small lakes with the sample frame.
+NE_Lakes %>% 
+  group_by(AREA_CAT) %>% 
+  summarize(AREA_AVG = n()/200)
+
+propprob <- grts(
+  NE_Lakes,
+  n_base = 50,
+  seltype = "proportional",
+  aux_var = "AREA"
+)
+
+plot(
+  propprob,
+  formula = siteuse ~ AREA_CAT,
+  NE_Lakes,
+  pch = 19,
+  key.width = lcm(3)
+)
+
+
+```
+
+
+10 acres
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE, fig.show="hold", out.width="50%"}
+#Create a vector defining stratified sample size
+strata_n <- c(small = 35, large = 15)
+
+#Select a stratified GRTS sample 
+STRAT_PROB <- grts(
+  NE_Lakes,
+  n_base = strata_n,
+  stratum_var = "AREA_CAT"
+)
+
+
+plot(
+  STRAT_PROB,
+  formula = siteuse ~ AREA_CAT,
+  NE_Lakes,
+  pch = 19,
+  key.width = lcm(3)
+)
+
+```

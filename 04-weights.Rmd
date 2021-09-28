@@ -2,17 +2,12 @@
 
 Implementing a GRTS survey design, assists in spatially balancing sampling sites.
 
-
+Unfortunately, most sample frames for aquatic resources are imperfect and will include non-target samples in the frame (over coverage) and include parts of the target population that cannot be sampled (e.g. access denials, barriers) (under coverage). 
 
 To correct for bias , survey weights should be used. 
 
 
-Statistically, the survey weights re-balance the dataset so that the sampled dataset represents the target population  
-
-
-
-
-
+Statistically, the survey weights re-balance the dataset so that the sampled dataset represents the target population.
 
 
 
