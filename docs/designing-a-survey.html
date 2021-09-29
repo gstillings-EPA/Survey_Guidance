@@ -112,20 +112,20 @@ Next, the designer must select a <strong>Sample Frame</strong> to use when selec
 <pre><code>## Simple feature collection with 5 features and 14 fields
 ## Geometry type: POINT
 ## Dimension:     XY
-## Bounding box:  xmin: 1889892 ymin: 2267943 xmax: 2053628 ymax: 2390183
+## Bounding box:  xmin: 1847206 ymin: 2264895 xmax: 2014028 ymax: 2418605
 ## Projected CRS: NAD83 / Conus Albers
 ##    siteID siteuse replsite lon_WGS84 lat_WGS84 stratum wgt   ip caty      AREA
-## 1 Site-01    Base     None -72.80922  41.31303    None   4 0.25 None  1.467758
-## 2 Site-02    Base     None -72.22505  41.62353    None   4 0.25 None  2.902965
-## 3 Site-03    Base     None -70.72533  42.04078    None   4 0.25 None 12.311900
-## 4 Site-04    Base     None -72.43644  42.05235    None   4 0.25 None  1.374411
-## 5 Site-05    Base     None -72.83123  41.89970    None   4 0.25 None 12.496624
-##   AREA_CAT  ELEV ELEV_CAT        LEGACY                geometry
-## 1    small 53.98      low          &lt;NA&gt; POINT (1907514 2267943)
-## 2    small 95.42      low          &lt;NA&gt; POINT (1945966 2313484)
-## 3    large 19.56      low          &lt;NA&gt; POINT (2053628 2390183)
-## 4    small 75.70      low LEGACY_SITE_1 POINT (1917247 2355684)
-## 5    large 89.77      low          &lt;NA&gt; POINT (1889892 2331214)</code></pre>
+## 1 Site-01    Base     None -72.19238  42.58750    None   4 0.25 None  3.928360
+## 2 Site-02    Base     None -72.01400  42.03126    None   4 0.25 None 16.846150
+## 3 Site-03    Base     None -72.98695  41.31769    None   4 0.25 None  1.761006
+## 4 Site-04    Base     None -71.33442  41.73572    None   4 0.25 None  6.185701
+## 5 Site-05    Base     None -73.21026  42.36524    None   4 0.25 None  1.346782
+##   AREA_CAT   ELEV ELEV_CAT LEGACY                geometry
+## 1    small 291.81     high   &lt;NA&gt; POINT (1921855 2418605)
+## 2    large 157.83     high   &lt;NA&gt; POINT (1951481 2361998)
+## 3    small  69.09      low   &lt;NA&gt; POINT (1893058 2264895)
+## 4    small   1.74      low   &lt;NA&gt; POINT (2014028 2344190)
+## 5    small 561.41     high   &lt;NA&gt; POINT (1847206 2374315)</code></pre>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#Creates an sframe object of northeast lakes found in the spsurvey package</span>
 <span class="va">NE_Lakes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/spsurvey/man/sframe.html">sframe</a></span><span class="op">(</span><span class="va">NE_Lakes</span><span class="op">)</span>
