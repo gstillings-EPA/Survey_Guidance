@@ -1,8 +1,27 @@
 bookdown::gitbook:
   css: style.css
+  theme:
+    primary: "#66023C"
   config:
     toc:
+      collapse: section
       before: |
         <li><a href="./">Guidance for Implementing a State Scale Statistical Survey</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+bookdown::bs4_book:
+  css: style.css
+  theme:
+    primary: "#66023C"
+    fg: "#000000"
+    bg: "#FFF0E2"
+  repo:
+    base: https://github.com/gstillings-EPA/Survey_Guidance
+    branch: master
+bookdown::pdf_book:
+  includes:
+    in_header: preamble.tex
+  latex_engine: xelatex
+  citation_package: natbib
+  keep_tex: yes
+bookdown::epub_book: default

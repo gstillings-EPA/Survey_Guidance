@@ -24,7 +24,7 @@
 <meta name="author" content="Garrett Stillings" />
 
 
-<meta name="date" content="2021-09-28" />
+<meta name="date" content="2021-09-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -142,10 +142,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="background.html"><a href="background.html#statistical-surveys"><i class="fa fa-check"></i>Statistical Surveys</a></li>
 <li class="chapter" data-level="" data-path="background.html"><a href="background.html#nars-and-monitoring-initiative-funds"><i class="fa fa-check"></i>NARS and Monitoring Initiative Funds</a></li>
-<li class="chapter" data-level="" data-path="background.html"><a href="background.html#leveraging-nars-for-partners"><i class="fa fa-check"></i>Leveraging NARS for Partners</a>
-<ul>
-<li class="chapter" data-level="" data-path="background.html"><a href="background.html#planning-for-an-intensification"><i class="fa fa-check"></i>Planning for an Intensification</a></li>
-</ul></li>
+<li class="chapter" data-level="" data-path="background.html"><a href="background.html#leveraging-nars-for-partners"><i class="fa fa-check"></i>Leveraging NARS for Partners</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="designing-a-survey.html"><a href="designing-a-survey.html"><i class="fa fa-check"></i><b>1</b> Designing a Survey</a></li>
 <li class="chapter" data-level="2" data-path="weights.html"><a href="weights.html"><i class="fa fa-check"></i><b>2</b> Weights</a></li>
@@ -153,6 +150,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4" data-path="visualization.html"><a href="visualization.html"><i class="fa fa-check"></i><b>4</b> Visualization</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
 </ul>
 
       </nav>
@@ -176,21 +174,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 In designing an aquatic resource monitoring survey, the designer must define what aquatic resource is to be monitored, otherwise known as the <strong>Target Population</strong>. For example, if the designer only has an interest in assessing the condition of perennial waters in a state, the target population is defined as perennial waters and intermittent and ephemeral waters are defined as non-target populations and are omitted from the selection process. The target population should align with your organizations monitoring strategy and objectives.</p>
 <p><strong>Select a Sample Frame of the Target Population</strong>
 Next, the designer must select a <strong>Sample Frame</strong> to use when selecting potential sampling sites. A sample frame is a GIS representation (e.g. shapefile) of the aquatic resource target population such as <a href="https://www.usgs.gov/core-science-systems/ngp/national-hydrography"><em>National Hydrography Datasets</em></a>. In the example above, the designer will select a dataset which only includes perennial waters. This process often involves extracting a subset of a dataset which contains non-target resources.</p>
-<p>Once the target population has been defined and a sample frame of the target population has been selected, the designer can now prepare survey. The code below shows how a survey was designed using a population of lakes in the Northeast US. This sample frame is found in the spsurvey package and is not meant for use other than as an example.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="designing-a-survey.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Load the spsurvey package</span></span>
-<span id="cb1-2"><a href="designing-a-survey.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(spsurvey)</span>
-<span id="cb1-3"><a href="designing-a-survey.html#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="designing-a-survey.html#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Plot NE_Lakes </span></span>
-<span id="cb1-5"><a href="designing-a-survey.html#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(NE_Lakes, </span>
-<span id="cb1-6"><a href="designing-a-survey.html#cb1-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">pch =</span> <span class="dv">19</span>,</span>
-<span id="cb1-7"><a href="designing-a-survey.html#cb1-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">main=</span> <span class="st">&quot;NE Lakes&quot;</span>,</span>
-<span id="cb1-8"><a href="designing-a-survey.html#cb1-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">key.width =</span> <span class="fu">lcm</span>(<span class="dv">3</span>))</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<center>
+<img src="images/SampleFrame.PNG" title="fig:" style="width:80.0%" alt="Illustration of a sample frame is constructed" />
+</center>
+<p>Sample frames for NARS and states may differ due to different target populations, source material, and state knowledge leading to improvements. For partners to leverage NARS fully, requesting the integration of a partners sample frame can possibly be accommodated.</p>
+<center>
+<img src="images/Partner_SF.PNG" title="fig:" style="width:80.0%" alt="Illustration of a partner sample frame integration" />
+</center>
+<p>Once the target population has been defined and a sample frame of the target population has been selected, the designer can now prepare survey. The code below shows how a survey was designed using a population of lakes in the Northeast US. This sample frame is found in the package <code>spsurvey</code> and is not meant for use other than as an example.</p>
 <p><strong>NOTE</strong> To upload your own sample frame, you may use the code below to read a file as an sf_object which is required by spsurvey to design a survey.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="designing-a-survey.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
-<span id="cb2-2"><a href="designing-a-survey.html#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="designing-a-survey.html#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Example to read a shapefile</span></span>
-<span id="cb2-4"><a href="designing-a-survey.html#cb2-4" aria-hidden="true" tabindex="-1"></a>my_sample_frame <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;path to my sample frame.shp&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="designing-a-survey.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb1-2"><a href="designing-a-survey.html#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="designing-a-survey.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Example to read a shapefile</span></span>
+<span id="cb1-4"><a href="designing-a-survey.html#cb1-4" aria-hidden="true" tabindex="-1"></a>my_sample_frame <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;path to my sample frame.shp&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="designing-a-survey.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Load the spsurvey package</span></span>
+<span id="cb2-2"><a href="designing-a-survey.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(spsurvey)</span>
+<span id="cb2-3"><a href="designing-a-survey.html#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="designing-a-survey.html#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#To view the NE_Lakes sf object which contains the target population</span></span>
+<span id="cb2-5"><a href="designing-a-survey.html#cb2-5" aria-hidden="true" tabindex="-1"></a>NE_Lakes <span class="ot">&lt;-</span> spsurvey<span class="sc">::</span>NE_Lakes</span>
+<span id="cb2-6"><a href="designing-a-survey.html#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="designing-a-survey.html#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#Plot NE_Lakes </span></span>
+<span id="cb2-8"><a href="designing-a-survey.html#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(NE_Lakes, </span>
+<span id="cb2-9"><a href="designing-a-survey.html#cb2-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">pch =</span> <span class="dv">19</span>,</span>
+<span id="cb2-10"><a href="designing-a-survey.html#cb2-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">main=</span> <span class="st">&quot;NE Lakes&quot;</span>,</span>
+<span id="cb2-11"><a href="designing-a-survey.html#cb2-11" aria-hidden="true" tabindex="-1"></a>     <span class="at">key.width =</span> <span class="fu">lcm</span>(<span class="dv">3</span>))</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>For a state scale monitoring survey, it is generally accepted that sampling 50 sites gives sufficient confidence when calculating condition estimates. This sample size can vary depending on the size of the sample frame. Below we prepare an unstratified equal probability survey in which all lakes in the sample frame have the same chance of being selected regardless of size or other attributes.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="designing-a-survey.html#cb3-1" aria-hidden="true" tabindex="-1"></a>EQ_PROB <span class="ot">&lt;-</span> <span class="fu">grts</span>(</span>
 <span id="cb3-2"><a href="designing-a-survey.html#cb3-2" aria-hidden="true" tabindex="-1"></a>  NE_Lakes,</span>
@@ -204,8 +212,8 @@ Next, the designer must select a <strong>Sample Frame</strong> to use when selec
 <span id="cb3-10"><a href="designing-a-survey.html#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">pch =</span> <span class="dv">19</span>,</span>
 <span id="cb3-11"><a href="designing-a-survey.html#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">key.width =</span> <span class="fu">lcm</span>(<span class="dv">3</span>)</span>
 <span id="cb3-12"><a href="designing-a-survey.html#cb3-12" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
-<p>Above, the plot displays the survey sites selected within the sample frame. Use the function <strong>sprbind()</strong> to obtain the information about each survey site.</p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-3-1.png" width="50%" /></p>
+<p>Above, the plot displays the survey sites selected within the sample frame. Use the function <strong>spsurvey::sprbind()</strong> to obtain the information about each survey site.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="designing-a-survey.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Binds survey site </span></span>
 <span id="cb4-2"><a href="designing-a-survey.html#cb4-2" aria-hidden="true" tabindex="-1"></a>EQ_PROB_INFO <span class="ot">&lt;-</span> <span class="fu">sprbind</span>(EQ_PROB)</span>
 <span id="cb4-3"><a href="designing-a-survey.html#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -214,83 +222,67 @@ Next, the designer must select a <strong>Sample Frame</strong> to use when selec
 <pre><code>## Simple feature collection with 5 features and 14 fields
 ## Geometry type: POINT
 ## Dimension:     XY
-## Bounding box:  xmin: 1842226 ymin: 2312748 xmax: 2083599 ymax: 2424651
+## Bounding box:  xmin: 1842226 ymin: 2305864 xmax: 2124136 ymax: 2374848
 ## Projected CRS: NAD83 / Conus Albers
-##    siteID siteuse replsite lon_WGS84 lat_WGS84 stratum wgt   ip caty       AREA
-## 1 Site-01    Base     None -71.68720  42.54796    None   4 0.25 None 137.812676
-## 2 Site-02    Base     None -73.31835  42.22854    None   4 0.25 None   3.550885
-## 3 Site-03    Base     None -73.00243  41.76092    None   4 0.25 None   1.040808
-## 4 Site-04    Base     None -70.48844  41.66384    None   4 0.25 None 288.448067
-## 5 Site-05    Base     None -71.94087  42.22772    None   4 0.25 None  57.867009
+##    siteID siteuse replsite lon_WGS84 lat_WGS84 stratum wgt   ip caty      AREA
+## 1 Site-01    Base     None -69.96715  41.69618    None   4 0.25 None  5.499884
+## 2 Site-02    Base     None -71.68577  41.75769    None   4 0.25 None 70.520516
+## 3 Site-03    Base     None -73.31835  42.22854    None   4 0.25 None  3.550885
+## 4 Site-04    Base     None -73.19849  41.73313    None   4 0.25 None  6.299730
+## 5 Site-05    Base     None -70.68794  41.89119    None   4 0.25 None  7.698516
 ##   AREA_CAT   ELEV ELEV_CAT LEGACY                geometry
-## 1    large  89.67      low   &lt;NA&gt; POINT (1962870 2424651)
-## 2    small 256.15     high   &lt;NA&gt; POINT (1842226 2357367)
-## 3    small 330.85     high   &lt;NA&gt; POINT (1879922 2312748)
-## 4    large  16.73      low   &lt;NA&gt; POINT (2083599 2354664)
-## 5    large 269.82     high   &lt;NA&gt; POINT (1951800 2384774)</code></pre>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="designing-a-survey.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb6-2"><a href="designing-a-survey.html#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="designing-a-survey.html#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Creates an sframe object of northeast lakes found in the spsurvey package</span></span>
-<span id="cb6-4"><a href="designing-a-survey.html#cb6-4" aria-hidden="true" tabindex="-1"></a>NE_Lakes <span class="ot">&lt;-</span> <span class="fu">sframe</span>(NE_Lakes)</span>
-<span id="cb6-5"><a href="designing-a-survey.html#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-6"><a href="designing-a-survey.html#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Plot NE_Lakes stratified by Area Category</span></span>
-<span id="cb6-7"><a href="designing-a-survey.html#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(NE_Lakes, </span>
-<span id="cb6-8"><a href="designing-a-survey.html#cb6-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">formula =</span> <span class="sc">~</span> AREA_CAT,</span>
-<span id="cb6-9"><a href="designing-a-survey.html#cb6-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">main=</span> <span class="st">&quot;NE Lakes by Area Category&quot;</span>,</span>
-<span id="cb6-10"><a href="designing-a-survey.html#cb6-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">pch =</span> <span class="dv">19</span>,</span>
-<span id="cb6-11"><a href="designing-a-survey.html#cb6-11" aria-hidden="true" tabindex="-1"></a>     <span class="at">key.width =</span> <span class="fu">lcm</span>(<span class="dv">3</span>))</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="designing-a-survey.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Summarize NE_lakes by Area Category</span></span>
-<span id="cb7-2"><a href="designing-a-survey.html#cb7-2" aria-hidden="true" tabindex="-1"></a>summary <span class="ot">&lt;-</span> <span class="fu">summary</span>(NE_Lakes, <span class="at">formula =</span> <span class="sc">~</span> AREA_CAT)</span>
-<span id="cb7-3"><a href="designing-a-survey.html#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="designing-a-survey.html#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Calculate proportion of Large and Small lakes with the sample frame.</span></span>
-<span id="cb7-5"><a href="designing-a-survey.html#cb7-5" aria-hidden="true" tabindex="-1"></a>NE_Lakes <span class="sc">%&gt;%</span> </span>
-<span id="cb7-6"><a href="designing-a-survey.html#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(AREA_CAT) <span class="sc">%&gt;%</span> </span>
-<span id="cb7-7"><a href="designing-a-survey.html#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">AREA_AVG =</span> <span class="fu">n</span>()<span class="sc">/</span><span class="dv">200</span>)</span></code></pre></div>
-<pre><code>## Simple feature collection with 2 features and 2 fields
-## Geometry type: MULTIPOINT
-## Dimension:     XY
-## Bounding box:  xmin: 1834001 ymin: 2225021 xmax: 2127632 ymax: 2449985
-## Projected CRS: NAD83 / Conus Albers
-## # A tibble: 2 x 3
-##   AREA_CAT AREA_AVG                                                     geometry
-##   &lt;fct&gt;       &lt;dbl&gt;                                             &lt;MULTIPOINT [m]&gt;
-## 1 small       0.695 ((1834001 2368846), (1835215 2327260), (1839911 2364209), (~
-## 2 large       0.305 ((1838268 2358782), (1845925 2270212), (1847288 2353025), (~</code></pre>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="designing-a-survey.html#cb9-1" aria-hidden="true" tabindex="-1"></a>propprob <span class="ot">&lt;-</span> <span class="fu">grts</span>(</span>
-<span id="cb9-2"><a href="designing-a-survey.html#cb9-2" aria-hidden="true" tabindex="-1"></a>  NE_Lakes,</span>
-<span id="cb9-3"><a href="designing-a-survey.html#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">n_base =</span> <span class="dv">50</span>,</span>
-<span id="cb9-4"><a href="designing-a-survey.html#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">seltype =</span> <span class="st">&quot;proportional&quot;</span>,</span>
-<span id="cb9-5"><a href="designing-a-survey.html#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">aux_var =</span> <span class="st">&quot;AREA&quot;</span></span>
-<span id="cb9-6"><a href="designing-a-survey.html#cb9-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb9-7"><a href="designing-a-survey.html#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-8"><a href="designing-a-survey.html#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
-<span id="cb9-9"><a href="designing-a-survey.html#cb9-9" aria-hidden="true" tabindex="-1"></a>  propprob,</span>
-<span id="cb9-10"><a href="designing-a-survey.html#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">formula =</span> siteuse <span class="sc">~</span> AREA_CAT,</span>
-<span id="cb9-11"><a href="designing-a-survey.html#cb9-11" aria-hidden="true" tabindex="-1"></a>  NE_Lakes,</span>
-<span id="cb9-12"><a href="designing-a-survey.html#cb9-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">pch =</span> <span class="dv">19</span>,</span>
-<span id="cb9-13"><a href="designing-a-survey.html#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">key.width =</span> <span class="fu">lcm</span>(<span class="dv">3</span>)</span>
-<span id="cb9-14"><a href="designing-a-survey.html#cb9-14" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-5-2.png" width="672" /><img src="bookdownproj_files/figure-html/unnamed-chunk-5-3.png" width="672" /></p>
+## 1    small   1.19      low   &lt;NA&gt; POINT (2124136 2369690)
+## 2    large 139.09     high   &lt;NA&gt; POINT (1985350 2339174)
+## 3    small 256.15     high   &lt;NA&gt; POINT (1842226 2357367)
+## 4    small 272.75     high   &lt;NA&gt; POINT (1864944 2305864)
+## 5    small  27.75      low   &lt;NA&gt; POINT (2060998 2374848)</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="designing-a-survey.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Creates an sframe object of northeast lakes found in the spsurvey package</span></span>
+<span id="cb6-2"><a href="designing-a-survey.html#cb6-2" aria-hidden="true" tabindex="-1"></a>NE_Lakes <span class="ot">&lt;-</span> <span class="fu">sframe</span>(NE_Lakes)</span>
+<span id="cb6-3"><a href="designing-a-survey.html#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="designing-a-survey.html#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Plot NE_Lakes stratified by Area Category</span></span>
+<span id="cb6-5"><a href="designing-a-survey.html#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(NE_Lakes, </span>
+<span id="cb6-6"><a href="designing-a-survey.html#cb6-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">formula =</span> <span class="sc">~</span> AREA_CAT,</span>
+<span id="cb6-7"><a href="designing-a-survey.html#cb6-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">main=</span> <span class="st">&quot;NE Lakes by Area Category&quot;</span>,</span>
+<span id="cb6-8"><a href="designing-a-survey.html#cb6-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">pch =</span> <span class="dv">19</span>,</span>
+<span id="cb6-9"><a href="designing-a-survey.html#cb6-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">key.width =</span> <span class="fu">lcm</span>(<span class="dv">3</span>))</span>
+<span id="cb6-10"><a href="designing-a-survey.html#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="designing-a-survey.html#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">#Summarize NE_lakes by Area Category</span></span>
+<span id="cb6-12"><a href="designing-a-survey.html#cb6-12" aria-hidden="true" tabindex="-1"></a>summary <span class="ot">&lt;-</span> <span class="fu">summary</span>(NE_Lakes, <span class="at">formula =</span> <span class="sc">~</span> AREA_CAT)</span>
+<span id="cb6-13"><a href="designing-a-survey.html#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="designing-a-survey.html#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-15"><a href="designing-a-survey.html#cb6-15" aria-hidden="true" tabindex="-1"></a>propprob <span class="ot">&lt;-</span> <span class="fu">grts</span>(</span>
+<span id="cb6-16"><a href="designing-a-survey.html#cb6-16" aria-hidden="true" tabindex="-1"></a>  NE_Lakes,</span>
+<span id="cb6-17"><a href="designing-a-survey.html#cb6-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">n_base =</span> <span class="dv">50</span>,</span>
+<span id="cb6-18"><a href="designing-a-survey.html#cb6-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">seltype =</span> <span class="st">&quot;proportional&quot;</span>,</span>
+<span id="cb6-19"><a href="designing-a-survey.html#cb6-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">aux_var =</span> <span class="st">&quot;AREA&quot;</span></span>
+<span id="cb6-20"><a href="designing-a-survey.html#cb6-20" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-21"><a href="designing-a-survey.html#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-22"><a href="designing-a-survey.html#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb6-23"><a href="designing-a-survey.html#cb6-23" aria-hidden="true" tabindex="-1"></a>  propprob,</span>
+<span id="cb6-24"><a href="designing-a-survey.html#cb6-24" aria-hidden="true" tabindex="-1"></a>  <span class="at">formula =</span> siteuse <span class="sc">~</span> AREA_CAT,</span>
+<span id="cb6-25"><a href="designing-a-survey.html#cb6-25" aria-hidden="true" tabindex="-1"></a>  NE_Lakes,</span>
+<span id="cb6-26"><a href="designing-a-survey.html#cb6-26" aria-hidden="true" tabindex="-1"></a>  <span class="at">pch =</span> <span class="dv">19</span>,</span>
+<span id="cb6-27"><a href="designing-a-survey.html#cb6-27" aria-hidden="true" tabindex="-1"></a>  <span class="at">key.width =</span> <span class="fu">lcm</span>(<span class="dv">3</span>)</span>
+<span id="cb6-28"><a href="designing-a-survey.html#cb6-28" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-5-1.png" width="50%" /><img src="bookdownproj_files/figure-html/unnamed-chunk-5-2.png" width="50%" /><img src="bookdownproj_files/figure-html/unnamed-chunk-5-3.png" width="50%" /></p>
 <p>10 acres</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="designing-a-survey.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Create a vector defining stratified sample size</span></span>
-<span id="cb10-2"><a href="designing-a-survey.html#cb10-2" aria-hidden="true" tabindex="-1"></a>strata_n <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">small =</span> <span class="dv">35</span>, <span class="at">large =</span> <span class="dv">15</span>)</span>
-<span id="cb10-3"><a href="designing-a-survey.html#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-4"><a href="designing-a-survey.html#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Select a stratified GRTS sample </span></span>
-<span id="cb10-5"><a href="designing-a-survey.html#cb10-5" aria-hidden="true" tabindex="-1"></a>STRAT_PROB <span class="ot">&lt;-</span> <span class="fu">grts</span>(</span>
-<span id="cb10-6"><a href="designing-a-survey.html#cb10-6" aria-hidden="true" tabindex="-1"></a>  NE_Lakes,</span>
-<span id="cb10-7"><a href="designing-a-survey.html#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">n_base =</span> strata_n,</span>
-<span id="cb10-8"><a href="designing-a-survey.html#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">stratum_var =</span> <span class="st">&quot;AREA_CAT&quot;</span></span>
-<span id="cb10-9"><a href="designing-a-survey.html#cb10-9" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb10-10"><a href="designing-a-survey.html#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-11"><a href="designing-a-survey.html#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-12"><a href="designing-a-survey.html#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
-<span id="cb10-13"><a href="designing-a-survey.html#cb10-13" aria-hidden="true" tabindex="-1"></a>  STRAT_PROB,</span>
-<span id="cb10-14"><a href="designing-a-survey.html#cb10-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">formula =</span> siteuse <span class="sc">~</span> AREA_CAT,</span>
-<span id="cb10-15"><a href="designing-a-survey.html#cb10-15" aria-hidden="true" tabindex="-1"></a>  NE_Lakes,</span>
-<span id="cb10-16"><a href="designing-a-survey.html#cb10-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">pch =</span> <span class="dv">19</span>,</span>
-<span id="cb10-17"><a href="designing-a-survey.html#cb10-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">key.width =</span> <span class="fu">lcm</span>(<span class="dv">3</span>)</span>
-<span id="cb10-18"><a href="designing-a-survey.html#cb10-18" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="designing-a-survey.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Create a vector defining stratified sample size</span></span>
+<span id="cb7-2"><a href="designing-a-survey.html#cb7-2" aria-hidden="true" tabindex="-1"></a>strata_n <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">small =</span> <span class="dv">35</span>, <span class="at">large =</span> <span class="dv">15</span>)</span>
+<span id="cb7-3"><a href="designing-a-survey.html#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="designing-a-survey.html#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Select a stratified GRTS sample </span></span>
+<span id="cb7-5"><a href="designing-a-survey.html#cb7-5" aria-hidden="true" tabindex="-1"></a>STRAT_PROB <span class="ot">&lt;-</span> <span class="fu">grts</span>(</span>
+<span id="cb7-6"><a href="designing-a-survey.html#cb7-6" aria-hidden="true" tabindex="-1"></a>  NE_Lakes,</span>
+<span id="cb7-7"><a href="designing-a-survey.html#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">n_base =</span> strata_n,</span>
+<span id="cb7-8"><a href="designing-a-survey.html#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">stratum_var =</span> <span class="st">&quot;AREA_CAT&quot;</span></span>
+<span id="cb7-9"><a href="designing-a-survey.html#cb7-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-10"><a href="designing-a-survey.html#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="designing-a-survey.html#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb7-12"><a href="designing-a-survey.html#cb7-12" aria-hidden="true" tabindex="-1"></a>  STRAT_PROB,</span>
+<span id="cb7-13"><a href="designing-a-survey.html#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">formula =</span> siteuse <span class="sc">~</span> AREA_CAT,</span>
+<span id="cb7-14"><a href="designing-a-survey.html#cb7-14" aria-hidden="true" tabindex="-1"></a>  NE_Lakes,</span>
+<span id="cb7-15"><a href="designing-a-survey.html#cb7-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">pch =</span> <span class="dv">19</span>,</span>
+<span id="cb7-16"><a href="designing-a-survey.html#cb7-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">key.width =</span> <span class="fu">lcm</span>(<span class="dv">3</span>)</span>
+<span id="cb7-17"><a href="designing-a-survey.html#cb7-17" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p><img src="bookdownproj_files/figure-html/unnamed-chunk-6-1.png" width="50%" /><img src="bookdownproj_files/figure-html/unnamed-chunk-6-2.png" width="50%" /></p>
 
 </div>
@@ -348,7 +340,7 @@ gitbook.start({
 "options": null
 },
 "toc": {
-"collapse": "subsection"
+"collapse": "section"
 }
 });
 });

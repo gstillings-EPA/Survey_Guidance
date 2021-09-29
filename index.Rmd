@@ -3,6 +3,8 @@ title: "Guidance for Implementing a Statistical Survey"
 author: "Garrett Stillings"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
+knit: "bookdown::render_book"
+
 ---
 
 # Preface {-}

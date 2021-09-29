@@ -1,0 +1,261 @@
+--- 
+title: "Guidance for Implementing a Statistical Survey"
+author: "Garrett Stillings"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+knit: "bookdown::render_book"
+
+---
+
+# Preface {-}
+
+This document is intended to be an introductory guide to assist EPA partners which are interested in implementing a statistical survey in their monitoring program to assess the condition of an aquatic resource (rivers and streams, lakes, wetlands, coasts). The guide will follow procedures available in the R package [*spsurvey*](https://github.com/USEPA/spsurvey) and R code to implement most stages of a statistical survey process. To assist non-R users, the guide will also offer screenshots of available R shiny applications which do not require coding experience. These applications are housed on an EPA server and can be accessed using an internet browser.
+
+Topics which will be covered in this document include: 
+
+1. __Statistical Survey Design__
+2. __Sampling Weights__
+3. __Condition Estimates of a Population__
+4. __Visualizing Estimates__
+
+
+
+
+
+<!--chapter:end:index.Rmd-->
+
+# Background {-}
+
+## Statistical Surveys {-}
+States and Tribes are required by the Clean Water Act (CWA) to periodically report on the condition of all their waters. The States and Tribes typically monitor at targeted sites and can make scientifically-defensible statements about the condition of their waters only at these sites. Typically, this covers only a small percentage of the total waters. Ideally, an organization would survey an entire population, otherwise known as a census, to perfectly reflect the condition of a resource. However, this is rarely possible and organizations are forced to implement a __Statistical Survey (Probabilistic) Design__ to randomly select a subset of the population to reduce the cost and effort. In such a design, each sampling site represents a specific portion of the total resource or population of interest such as all river and stream length in the nation. Because of the statistical nature of site selection, results from the sample population can be extrapolated to the entire population. For this reason, probability surveys are well suited for making unbiased assessments of the condition of an entire resource across large geographic areas with a known confidence.
+
+
+## NARS and Monitoring Initiative Funds {-}
+The Environmental Protection Agency (EPA) utilizes statistical survey designs in the National Aquatic Resource Surveys (NARS). NARS provides statistically valid national assessments of the condition of the nation’s waters (streams and rivers, lakes, coastal waters, and wetlands). EPA encourages states to implement a statistical survey in their monitoring program to provide comprehensive statements about statewide water quality conditions (in line with §305(b) reporting).
+ 
+Monitoring Initiative funds are allocated to states, eligible interstate agencies, and eligible tribes using a formula that targets funds to enhance monitoring strategies and develop statistically valid reports on water condition. EPA, states and other partners collaborate to design the National Aquatic Resource Surveys, which cover the continental United States. For each sampling site selected through the survey design that falls within their jurisdiction, a state, eligible interstate agency, or eligible tribe receives approximately $8,000. Alaska, Hawaii, and the territories are not included in the National Aquatic Resource Surveys, but receive some of this funding for statistical survey projects.
+
+The requirements for receiving monitoring initiative funds are:
+
+__1. Implementing a statistical survey design that provides condition estimates for a population of waters (e.g., streams, rivers, lakes, coastal waters, or wetlands) of the state based on an unbiased, representative sample of a subset of those waters. If they choose not to they must describe the program capacity development activities they are proposing and link them to their monitoring strategy.__
+
+__2. Participate in the national/regional scale surveys (which may just be agreement to receive in-kind assistance).__
+
+__3. Report the results of the states scale survey, preferably as a component of the state’s Integrated Report (narrative form) and/or in the probability survey module of ATTAINS.__
+
+## Leveraging NARS for Partners {-}
+
+EPA encourages states, tribal nations, and other partners to leverage implementation of the NARS whether through the addition of indicators of special interest, sampling additional sites to achieve state-level or other program monitoring objectives or integrating their monitoring program with NARS. 
+
+EPA defines the addition of sites to the NARS as an intensification. Taking on an intensification typically requires significant coordination between the state, tribe or other groups involved and EPA to make the project a success. There are several things to think about when considering an intensification such as your overall objectives, costs, where the funding will come from and who will conduct the work. Below is more detail on these and other items. If you have decided that an intensification might be feasible, we encourage you to reach out to your Regional Monitoring Coordinator to talk through the next steps in planning and logistics. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--chapter:end:02-background.Rmd-->
+
+# Designing a Survey
+
+__Define the Target Population__
+In designing an aquatic resource monitoring survey, the designer must define what aquatic resource is to be monitored, otherwise known as the __Target Population__. For example, if the designer only has an interest in assessing the condition of perennial waters in a state, the target population is defined as perennial waters and intermittent and ephemeral waters are defined as non-target populations and are omitted from the selection process. The target population should align with your organizations monitoring strategy and objectives. 
+
+
+
+__Select a Sample Frame of the Target Population__
+Next, the designer must select a __Sample Frame__ to use when selecting potential sampling sites. A sample frame is a GIS representation (e.g. shapefile) of the aquatic resource target population such as [*National Hydrography Datasets*](https://www.usgs.gov/core-science-systems/ngp/national-hydrography). In the example above, the designer will select a dataset which only includes perennial waters. This process often involves extracting a subset of a dataset which contains non-target resources. 
+
+<center>
+![Illustration of a sample frame is constructed](images/SampleFrame.png){width=80%}
+</center>
+
+Sample frames for NARS and states may differ due to different target populations, source material, and state knowledge leading to improvements. For partners to leverage NARS fully, requesting the integration of a partners sample frame can possibly be accommodated. 
+
+<center>
+![Illustration of a partner sample frame integration](images/Partner_SF.png){width=80%}
+</center>
+
+Once the target population has been defined and a sample frame of the target population has been selected, the designer can now prepare survey. The code below shows how a survey was designed using a population of lakes in the Northeast US. This sample frame is found in the package `spsurvey` and is not meant for use other than as an example.
+
+__NOTE__ To upload your own sample frame, you may use the code below to read a file as an sf_object which is required by spsurvey to design a survey.
+```{r, echo=TRUE, eval=FALSE}
+library(sf)
+
+#Example to read a shapefile
+my_sample_frame <- st_read("path to my sample frame.shp")
+```
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+#Load the spsurvey package
+library(spsurvey)
+
+#To view the NE_Lakes sf object which contains the target population
+NE_Lakes <- spsurvey::NE_Lakes
+
+#Plot NE_Lakes 
+plot(NE_Lakes, 
+     pch = 19,
+     main= "NE Lakes",
+     key.width = lcm(3))
+```
+
+For a state scale monitoring survey, it is generally accepted that sampling 50 sites gives sufficient confidence when calculating condition estimates. This sample size can vary depending on the size of the sample frame. Below we prepare an unstratified equal probability survey in which all lakes in the sample frame have the same chance of being selected regardless of size or other attributes.
+```{r, echo=TRUE, warning=FALSE, message=FALSE, fig.show="hold", out.width="50%"}
+EQ_PROB <- grts(
+  NE_Lakes,
+  n_base = 50
+)
+
+plot(
+  EQ_PROB,
+  NE_Lakes,
+  main= "Base Sample Sites",
+  pch = 19,
+  key.width = lcm(3)
+)
+```
+
+Above, the plot displays the survey sites selected within the sample frame. Use the function __spsurvey::sprbind()__ to obtain the information about each survey site. 
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+#Binds survey site 
+EQ_PROB_INFO <- sprbind(EQ_PROB)
+
+#View the first 5 rows
+head(EQ_PROB_INFO, 5)
+```
+
+
+
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE, fig.show="hold", out.width="50%"}
+#Creates an sframe object of northeast lakes found in the spsurvey package
+NE_Lakes <- sframe(NE_Lakes)
+
+#Plot NE_Lakes stratified by Area Category
+plot(NE_Lakes, 
+     formula = ~ AREA_CAT,
+     main= "NE Lakes by Area Category",
+     pch = 19,
+     key.width = lcm(3))
+
+#Summarize NE_lakes by Area Category
+summary <- summary(NE_Lakes, formula = ~ AREA_CAT)
+
+
+propprob <- grts(
+  NE_Lakes,
+  n_base = 50,
+  seltype = "proportional",
+  aux_var = "AREA"
+)
+
+plot(
+  propprob,
+  formula = siteuse ~ AREA_CAT,
+  NE_Lakes,
+  pch = 19,
+  key.width = lcm(3)
+)
+```
+
+
+10 acres
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE, fig.show="hold", out.width="50%"}
+#Create a vector defining stratified sample size
+strata_n <- c(small = 35, large = 15)
+
+#Select a stratified GRTS sample 
+STRAT_PROB <- grts(
+  NE_Lakes,
+  n_base = strata_n,
+  stratum_var = "AREA_CAT"
+)
+
+plot(
+  STRAT_PROB,
+  formula = siteuse ~ AREA_CAT,
+  NE_Lakes,
+  pch = 19,
+  key.width = lcm(3)
+)
+```
+
+<!--chapter:end:03-survey_design.Rmd-->
+
+# Weights
+
+Implementing a GRTS survey design, assists in spatially balancing sampling sites.
+
+Unfortunately, most sample frames for aquatic resources are imperfect and will include non-target samples in the frame (over coverage) and include parts of the target population that cannot be sampled (e.g. access denials, barriers) (under coverage). 
+
+To correct for bias , survey weights should be used. 
+
+
+Statistically, the survey weights re-balance the dataset so that the sampled dataset represents the target population.
+
+
+
+
+Sampling weights are intended to correct for systematic differences in probability sampling.
+
+Sampling weights, also known as survey weights, are positive values associated with the observations (rows) in your dataset (sample), used to ensure that metrics derived from a data set are representative of the population (the set of observations).
+
+Survey sampling is frequently used to reduce the cost or effort to survey an entire population. Surveying an entire population is called a census. Ideally, a sample is perfectly reflective of the population. However, this is often not the case due to various sources of sampling bias. Sampling weights are intended to correct for systematic differences in probability sampling.
+Why wouldn’t a survey sample reflect the population it was drawn from?
+
+Some respondents are systematically less likely to respond to or participate in a survey. This is called the participation or non-response bias.
+Some segments of the population may not be included in a survey sample’s frame. A traditional example of this is seen in telephone surveys, they cannot access homes that do not have a telephone. This effect is called a coverage bias, or non-coverage.
+
+
+
+
+Some respondents may have a differing probability of being selected. An example of this would be a telephone survey where a household has more than one phone line. This is called selection bias.
+Certain individuals may be more likely to select themselves into a group, this is calledself-selection bias.
+Some sampling designs, such as stratified sampling or cluster sampling, can cause certain features to have a higher probability of selection than others.
+
+This can be set up so that key variables of interest (e.g., age, race, sex) are intentionally more selected (oversampled) to allow researchers to measure with more prediction changes in key populations.
+Sampling weights are intended to compensate for the selection of specific observations with unequal probabilities (oversampling), non-coverage, non-responses, and other types of bias. 
+
+
+If a biased data set is not adjusted, population descriptors (e.g., mean, median) will be skewed and fail to correctly represent the population’s proportion to the population.
+
+Statistically, the sampling weights re-balance the data set so that the sampled data set represents the target population as closely as reasonably possible. Sampling weights are often the reciprocalof the likelihood of being sampled (i.e., selection probability) of the sampling unit. For example, if you have selected 200 goldfish out of a population of 1000, the reciprocal of the likelihood of being selected is 1000/200, so the sampling weight for the goldfish would be 5.
+
+Sampling weights are important for survey data, particularly when calculating summary statistics (e.g., mean, median, or proportions). The relevance of using weights in data science models (e.g., linear or logistic regression modeling) is less clear, particularly when the models include controls for the variables used in weight construction.
+
+Ultimately, the decision to weight will depend on your sampling design, sampled data set, and industry knowledge of your use case. Your best friend for understanding how biases may be present in your data set will be performing data investigation. At a minimum, you should always include potential sources of bias (such as a non-response rate, or if key variables (e.g., income) are disproportionately represented as non-responses) in your reported findings. If you choose to use sampling weights in your analysis, document how your weights were derived and how they were applied.
+
+<!--chapter:end:04-weights.Rmd-->
+
+# Condition Estimates
+
+<!--chapter:end:05-condition_estimates.Rmd-->
+
+# Visualization
+
+<!--chapter:end:06-visualization.Rmd-->
+

@@ -1,4 +1,0 @@
-designing-a-survey
-weights
-condition-estimates
-visualization
