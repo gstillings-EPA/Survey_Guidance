@@ -1,7 +1,7 @@
 # Background {-}
 
 ## Statistical Surveys {-}
-States and Tribes are required by the Clean Water Act (CWA) to periodically report on the condition of all their waters. The States and Tribes typically monitor at targeted sites and can make scientifically-defensible statements about the condition of their waters only at these sites. Typically, this covers only a small percentage of the total waters. Ideally, an organization would survey an entire population, otherwise known as a census, to perfectly reflect the condition of a resource. However, this is rarely possible and organizations are forced to implement a __Statistical Survey (Probabilistic) Design__ to randomly select a subset of the population to reduce the cost and effort. In such a design, each sampling site represents a specific portion of the total resource or population of interest such as all river and stream length in the nation. Because of the statistical nature of site selection, results from the sample population can be extrapolated to the entire population. For this reason, probability surveys are well suited for making unbiased assessments of the condition of an entire resource across large geographic areas with a known confidence.
+States and Tribes are required by the Clean Water Act (CWA) to periodically report on the condition of all their waters. The States and Tribes typically monitor at targeted sites and can make scientifically-defensible statements about the condition of their waters only at these sites. Typically, this covers only a small percentage of the total waters. Ideally, an organization would survey an entire population, otherwise known as a census, to perfectly reflect the condition of a resource. However, this is rarely possible and organizations are forced to implement a __Statistical (Probabilistic) Survey  Design__ to randomly select a subset of the population to reduce the cost and effort when sampling. In such a design, each sampling site represents a specific portion of the total resource or population of interest such as all river and stream length in the nation. Because of the statistical nature of site selection, results from the sample population can be extrapolated to the entire population. For this reason, probability surveys are well suited for making unbiased assessments of the condition of an entire resource across large geographic areas with a known confidence.
 
 
 ## NARS and Monitoring Initiative Funds {-}
@@ -23,11 +23,43 @@ EPA encourages states, tribal nations, and other partners to leverage implementa
 
 EPA defines the addition of sites to the NARS as an intensification. Taking on an intensification typically requires significant coordination between the state, tribe or other groups involved and EPA to make the project a success. There are several things to think about when considering an intensification such as your overall objectives, costs, where the funding will come from and who will conduct the work. Below is more detail on these and other items. If you have decided that an intensification might be feasible, we encourage you to reach out to your Regional Monitoring Coordinator to talk through the next steps in planning and logistics. 
 
+## Definitions {-}
 
+__Auxiliary Variable__ - numeric attribute which represents the proportional (to size) inclusion probability variable.
 
+__Category__ - variables found within a stratum used to define design weights for unequal probability selections.
 
+__Census__ -  examining every unit in a population of interest.
 
+__Generalized Random Tessellation Stratified (GRTS) Algorithm__ - is a spatially balanced sampling algorithm available in spsurvey. 
 
+__Equal Probability Selection__ - selection where all units of the population have the same probability of being selected.
+
+__Non-Target Population__ - portion of the resource that is not of interest.
+
+__Population Estimate__ - estimates of the extent of a population, based on categorical and continuous variables.
+
+__Proportional Probability Selection__ - selection where the chance of being included is proportional to the values of a positive auxiliary variable.
+
+__Sample Frame__ - a GIS representation of the aquatic resource target population used in the selection of the sample.
+
+__Sample Population__ - the portion of the target population that might have been selected to be sampled and that could have been sampled in the field. 
+
+__Stratum__ - a subpopulation within your sample frame to independently sample.
+
+__Spatial Balance__ - the degree of spatial spreading of a sample.
+
+__spsurvey__ - R package which provides functions for spatial survey design and analysis.
+
+__Statistical Survey__ - a cost effective, statistically representative method for assessing condition of a broad population and tracking changes over time.
+
+__Survey__ - a research method used for collecting data from a predefined group of sites.
+
+__Survey Weight__ - positive values associated with the observations in your dataset, used to ensure that metrics derived from a data set are representative of the population.
+
+__Target Population__ - an explicit definition of the resource of interest.
+
+__Unequal Probability Selection__ - selection where the chance of being included is set according to categorical variables.
 
 
 

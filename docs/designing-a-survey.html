@@ -15,9 +15,9 @@
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.0/transition.js"></script><script src="libs/bs3compat-0.3.0/tabs.js"></script><script src="libs/bs3compat-0.3.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="style.css">
-<meta name="description" content="Define the Target Population In designing an aquatic resource monitoring survey, the designer must define what aquatic resource is to be monitored, otherwise known as the Target Population. For...">
-<meta property="og:description" content="Define the Target Population In designing an aquatic resource monitoring survey, the designer must define what aquatic resource is to be monitored, otherwise known as the Target Population. For...">
-<meta name="twitter:description" content="Define the Target Population In designing an aquatic resource monitoring survey, the designer must define what aquatic resource is to be monitored, otherwise known as the Target Population. For...">
+<meta name="description" content="##Target Population## Define the Target Population In designing an aquatic resource monitoring survey, the designer must define what aquatic resource is to be monitored, otherwise known as the...">
+<meta property="og:description" content="##Target Population## Define the Target Population In designing an aquatic resource monitoring survey, the designer must define what aquatic resource is to be monitored, otherwise known as the...">
+<meta name="twitter:description" content="##Target Population## Define the Target Population In designing an aquatic resource monitoring survey, the designer must define what aquatic resource is to be monitored, otherwise known as the...">
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -56,9 +56,11 @@
 <h1>
 <span class="header-section-number">1</span> Designing a Survey<a class="anchor" aria-label="anchor" href="#designing-a-survey"><i class="fas fa-link"></i></a>
 </h1>
-<p><strong>Define the Target Population</strong>
+<p>##Target Population##
+<strong>Define the Target Population</strong>
 In designing an aquatic resource monitoring survey, the designer must define what aquatic resource is to be monitored, otherwise known as the <strong>Target Population</strong>. For example, if the designer only has an interest in assessing the condition of perennial waters in a state, the target population is defined as perennial waters and intermittent and ephemeral waters are defined as non-target populations and are omitted from the selection process. The target population should align with your organizations monitoring strategy and objectives.</p>
-<p><strong>Select a Sample Frame of the Target Population</strong>
+<p>##Sample Frame##
+<strong>Select a Sample Frame of the Target Population</strong>
 Next, the designer must select a <strong>Sample Frame</strong> to use when selecting potential sampling sites. A sample frame is a GIS representation (e.g. shapefile) of the aquatic resource target population such as <a href="https://www.usgs.gov/core-science-systems/ngp/national-hydrography"><em>National Hydrography Datasets</em></a>. In the example above, the designer will select a dataset which only includes perennial waters. This process often involves extracting a subset of a dataset which contains non-target resources.</p>
 <center>
 <img src="images/SampleFrame.PNG" title="fig:" style="width:80.0%" alt="Illustration of a sample frame is constructed">
@@ -67,13 +69,14 @@ Next, the designer must select a <strong>Sample Frame</strong> to use when selec
 <center>
 <img src="images/Partner_SF.PNG" title="fig:" style="width:80.0%" alt="Illustration of a partner sample frame integration">
 </center>
-<p>Once the target population has been defined and a sample frame of the target population has been selected, the designer can now prepare survey. The code below shows how a survey was designed using a population of lakes in the Northeast US. This sample frame is found in the package <code>spsurvey</code> and is not meant for use other than as an example.</p>
+<p>##Prepare a Survey##
+Once the target population has been defined and a sample frame of the target population has been selected, the designer can now prepare a survey. The code below shows how a survey was designed using a population of lakes in the Northeast US. This sample frame is found in the package <code>spsurvey</code> and is not meant for use other than as an example.</p>
 <p><strong>NOTE</strong> To upload your own sample frame, you may use the code below to read a file as an sf_object which is required by spsurvey to design a survey.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/">sf</a></span><span class="op">)</span>
 
 <span class="co">#Example to read a shapefile</span>
-<span class="va">my_sample_frame</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_read.html">st_read</a></span><span class="op">(</span><span class="st">"path to my sample frame.shp"</span><span class="op">)</span></code></pre></div>
+<span class="va">my_sample_frame</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_read.html">st_read</a></span><span class="op">(</span><span class="st">"path/to/my/sample/frame.shp"</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#Load the spsurvey package</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/USEPA/spsurvey">spsurvey</a></span><span class="op">)</span>
@@ -87,7 +90,8 @@ Next, the designer must select a <strong>Sample Frame</strong> to use when selec
      main<span class="op">=</span> <span class="st">"NE Lakes"</span>,
      key.width <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/layout.html">lcm</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="bookdownproj_files/figure-html/unnamed-chunk-2-1.png" width="672"></div>
-<p>For a state scale monitoring survey, it is generally accepted that sampling 50 sites gives sufficient confidence when calculating condition estimates. This sample size can vary depending on the size of the sample frame. Below we prepare an unstratified equal probability survey in which all lakes in the sample frame have the same chance of being selected regardless of size or other attributes.</p>
+<p>##Unstratified Equal Probablity Design##
+For a state scale monitoring survey, it is generally accepted that sampling 50 sites gives sufficient confidence when calculating condition estimates. This sample size can vary depending on the size of the sample frame. Below we prepare an unstratified equal probability survey in which all lakes in the sample frame have the same chance of being selected regardless of size or other attributes.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">EQ_PROB</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/spsurvey/man/grts.html">grts</a></span><span class="op">(</span>
   <span class="va">NE_Lakes</span>,
@@ -112,34 +116,32 @@ Next, the designer must select a <strong>Sample Frame</strong> to use when selec
 <pre><code>## Simple feature collection with 5 features and 14 fields
 ## Geometry type: POINT
 ## Dimension:     XY
-## Bounding box:  xmin: 1847206 ymin: 2264895 xmax: 2014028 ymax: 2418605
+## Bounding box:  xmin: 1855254 ymin: 2278764 xmax: 2006131 ymax: 2357507
 ## Projected CRS: NAD83 / Conus Albers
 ##    siteID siteuse replsite lon_WGS84 lat_WGS84 stratum wgt   ip caty      AREA
-## 1 Site-01    Base     None -72.19238  42.58750    None   4 0.25 None  3.928360
-## 2 Site-02    Base     None -72.01400  42.03126    None   4 0.25 None 16.846150
-## 3 Site-03    Base     None -72.98695  41.31769    None   4 0.25 None  1.761006
-## 4 Site-04    Base     None -71.33442  41.73572    None   4 0.25 None  6.185701
-## 5 Site-05    Base     None -73.21026  42.36524    None   4 0.25 None  1.346782
+## 1 Site-01    Base     None -72.59874  41.53708    None   4 0.25 None  4.928180
+## 2 Site-02    Base     None -73.11579  41.90821    None   4 0.25 None  1.214076
+## 3 Site-03    Base     None -73.16363  42.20213    None   4 0.25 None  1.495233
+## 4 Site-04    Base     None -71.42052  41.77149    None   4 0.25 None  6.659393
+## 5 Site-05    Base     None -72.50852  41.35677    None   4 0.25 None 10.312968
 ##   AREA_CAT   ELEV ELEV_CAT LEGACY                geometry
-## 1    small 291.81     high   &lt;NA&gt; POINT (1921855 2418605)
-## 2    large 157.83     high   &lt;NA&gt; POINT (1951481 2361998)
-## 3    small  69.09      low   &lt;NA&gt; POINT (1893058 2264895)
-## 4    small   1.74      low   &lt;NA&gt; POINT (2014028 2344190)
-## 5    small 561.41     high   &lt;NA&gt; POINT (1847206 2374315)</code></pre>
+## 1    small 150.88     high   &lt;NA&gt; POINT (1918363 2296508)
+## 2    small 385.96     high   &lt;NA&gt; POINT (1866906 2326514)
+## 3    small 397.62     high   &lt;NA&gt; POINT (1855254 2357507)
+## 4    small   6.75      low   &lt;NA&gt; POINT (2006131 2346237)
+## 5    large  84.68      low   &lt;NA&gt; POINT (1930547 2278764)</code></pre>
+<p>##Proporitional Probablity Design##
+Often, designers may want to proportionally stratify sites based on a <code>Category</code>.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#Creates an sframe object of northeast lakes found in the spsurvey package</span>
 <span class="va">NE_Lakes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/spsurvey/man/sframe.html">sframe</a></span><span class="op">(</span><span class="va">NE_Lakes</span><span class="op">)</span>
-
+ 
 <span class="co">#Plot NE_Lakes stratified by Area Category</span>
 <span class="fu"><a href="https://rdrr.io/pkg/spsurvey/man/plot.html">plot</a></span><span class="op">(</span><span class="va">NE_Lakes</span>, 
      formula <span class="op">=</span> <span class="op">~</span> <span class="va">AREA_CAT</span>,
      main<span class="op">=</span> <span class="st">"NE Lakes by Area Category"</span>,
      pch <span class="op">=</span> <span class="fl">19</span>,
      key.width <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/layout.html">lcm</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span><span class="op">)</span>
-
-<span class="co">#Summarize NE_lakes by Area Category</span>
-<span class="va">summary</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/spsurvey/man/summary.html">summary</a></span><span class="op">(</span><span class="va">NE_Lakes</span>, formula <span class="op">=</span> <span class="op">~</span> <span class="va">AREA_CAT</span><span class="op">)</span>
-
 
 <span class="va">propprob</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/spsurvey/man/grts.html">grts</a></span><span class="op">(</span>
   <span class="va">NE_Lakes</span>,
@@ -155,7 +157,7 @@ Next, the designer must select a <strong>Sample Frame</strong> to use when selec
   pch <span class="op">=</span> <span class="fl">19</span>,
   key.width <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/layout.html">lcm</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span>
 <span class="op">)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-5-1.png" width="50%"><img src="bookdownproj_files/figure-html/unnamed-chunk-5-2.png" width="50%"><img src="bookdownproj_files/figure-html/unnamed-chunk-5-3.png" width="50%"></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-5-1.png" width="47%"><img src="bookdownproj_files/figure-html/unnamed-chunk-5-2.png" width="47%"><img src="bookdownproj_files/figure-html/unnamed-chunk-5-3.png" width="47%"></p>
 <p>10 acres</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#Create a vector defining stratified sample size</span>
@@ -175,7 +177,7 @@ Next, the designer must select a <strong>Sample Frame</strong> to use when selec
   pch <span class="op">=</span> <span class="fl">19</span>,
   key.width <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/layout.html">lcm</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span>
 <span class="op">)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-6-1.png" width="50%"><img src="bookdownproj_files/figure-html/unnamed-chunk-6-2.png" width="50%"></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-6-1.png" width="47%"><img src="bookdownproj_files/figure-html/unnamed-chunk-6-2.png" width="47%"></p>
 
 </div>
   <div class="chapter-nav">
