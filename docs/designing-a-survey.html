@@ -1,351 +1,213 @@
 <!DOCTYPE html>
-<html lang="" xml:lang="">
+<html lang="en">
 <head>
-
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1 Designing a Survey | Guidance for Implementing a Statistical Survey</title>
-  <meta name="description" content="1 Designing a Survey | Guidance for Implementing a Statistical Survey" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
-
-  <meta property="og:title" content="1 Designing a Survey | Guidance for Implementing a Statistical Survey" />
-  <meta property="og:type" content="book" />
-  
-  
-  
-  
-
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1 Designing a Survey | Guidance for Implementing a Statistical Survey" />
-  
-  
-  
-
-<meta name="author" content="Garrett Stillings" />
-
-
-<meta name="date" content="2021-09-29" />
-
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  
-  
-<link rel="prev" href="background.html"/>
-<link rel="next" href="weights.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
-<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
-<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
-
-
-
-
-
-
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
-
-
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
-
-
-<link rel="stylesheet" href="style.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>1 Designing a Survey | Guidance for Implementing a Statistical Survey</title>
+<meta name="author" content="Garrett Stillings">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="1 Designing a Survey | Guidance for Implementing a Statistical Survey">
+<meta property="og:type" content="book">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="1 Designing a Survey | Guidance for Implementing a Statistical Survey">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.0/transition.js"></script><script src="libs/bs3compat-0.3.0/tabs.js"></script><script src="libs/bs3compat-0.3.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="style.css">
+<meta name="description" content="Define the Target Population In designing an aquatic resource monitoring survey, the designer must define what aquatic resource is to be monitored, otherwise known as the Target Population. For...">
+<meta property="og:description" content="Define the Target Population In designing an aquatic resource monitoring survey, the designer must define what aquatic resource is to be monitored, otherwise known as the Target Population. For...">
+<meta name="twitter:description" content="Define the Target Population In designing an aquatic resource monitoring survey, the designer must define what aquatic resource is to be monitored, otherwise known as the Target Population. For...">
 </head>
+<body data-spy="scroll" data-target="#toc">
 
-<body>
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 
-
-
-  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
-
-    <div class="book-summary">
-      <nav role="navigation">
-
-<ul class="summary">
-<li><a href="./">Guidance for Implementing a State Scale Statistical Survey</a></li>
-
-<li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
-<li class="chapter" data-level="" data-path="background.html"><a href="background.html"><i class="fa fa-check"></i>Background</a>
-<ul>
-<li class="chapter" data-level="" data-path="background.html"><a href="background.html#statistical-surveys"><i class="fa fa-check"></i>Statistical Surveys</a></li>
-<li class="chapter" data-level="" data-path="background.html"><a href="background.html#nars-and-monitoring-initiative-funds"><i class="fa fa-check"></i>NARS and Monitoring Initiative Funds</a></li>
-<li class="chapter" data-level="" data-path="background.html"><a href="background.html#leveraging-nars-for-partners"><i class="fa fa-check"></i>Leveraging NARS for Partners</a></li>
-</ul></li>
-<li class="chapter" data-level="1" data-path="designing-a-survey.html"><a href="designing-a-survey.html"><i class="fa fa-check"></i><b>1</b> Designing a Survey</a></li>
-<li class="chapter" data-level="2" data-path="weights.html"><a href="weights.html"><i class="fa fa-check"></i><b>2</b> Weights</a></li>
-<li class="chapter" data-level="3" data-path="condition-estimates.html"><a href="condition-estimates.html"><i class="fa fa-check"></i><b>3</b> Condition Estimates</a></li>
-<li class="chapter" data-level="4" data-path="visualization.html"><a href="visualization.html"><i class="fa fa-check"></i><b>4</b> Visualization</a></li>
-<li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-
-</ul>
-
-      </nav>
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Guidance for Implementing a Statistical Survey</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
 
-    <div class="book-body">
-      <div class="body-inner">
-        <div class="book-header" role="navigation">
-          <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Guidance for Implementing a Statistical Survey</a>
-          </h1>
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Preface</a></li>
+<li><a class="" href="background.html">Background</a></li>
+<li><a class="active" href="designing-a-survey.html"><span class="header-section-number">1</span> Designing a Survey</a></li>
+<li><a class="" href="weights.html"><span class="header-section-number">2</span> Weights</a></li>
+<li><a class="" href="condition-estimates.html"><span class="header-section-number">3</span> Condition Estimates</a></li>
+<li><a class="" href="visualization.html"><span class="header-section-number">4</span> Visualization</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/gstillings-EPA/Survey_Guidance">View book source <i class="fab fa-github"></i></a></p>
         </div>
-
-        <div class="page-wrapper" tabindex="-1" role="main">
-          <div class="page-inner">
-
-            <section class="normal" id="section-">
-<div id="designing-a-survey" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> Designing a Survey</h1>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="designing-a-survey" class="section level1" number="1">
+<h1>
+<span class="header-section-number">1</span> Designing a Survey<a class="anchor" aria-label="anchor" href="#designing-a-survey"><i class="fas fa-link"></i></a>
+</h1>
 <p><strong>Define the Target Population</strong>
 In designing an aquatic resource monitoring survey, the designer must define what aquatic resource is to be monitored, otherwise known as the <strong>Target Population</strong>. For example, if the designer only has an interest in assessing the condition of perennial waters in a state, the target population is defined as perennial waters and intermittent and ephemeral waters are defined as non-target populations and are omitted from the selection process. The target population should align with your organizations monitoring strategy and objectives.</p>
 <p><strong>Select a Sample Frame of the Target Population</strong>
 Next, the designer must select a <strong>Sample Frame</strong> to use when selecting potential sampling sites. A sample frame is a GIS representation (e.g. shapefile) of the aquatic resource target population such as <a href="https://www.usgs.gov/core-science-systems/ngp/national-hydrography"><em>National Hydrography Datasets</em></a>. In the example above, the designer will select a dataset which only includes perennial waters. This process often involves extracting a subset of a dataset which contains non-target resources.</p>
 <center>
-<img src="images/SampleFrame.PNG" title="fig:" style="width:80.0%" alt="Illustration of a sample frame is constructed" />
+<img src="images/SampleFrame.PNG" title="fig:" style="width:80.0%" alt="Illustration of a sample frame is constructed">
 </center>
 <p>Sample frames for NARS and states may differ due to different target populations, source material, and state knowledge leading to improvements. For partners to leverage NARS fully, requesting the integration of a partners sample frame can possibly be accommodated.</p>
 <center>
-<img src="images/Partner_SF.PNG" title="fig:" style="width:80.0%" alt="Illustration of a partner sample frame integration" />
+<img src="images/Partner_SF.PNG" title="fig:" style="width:80.0%" alt="Illustration of a partner sample frame integration">
 </center>
 <p>Once the target population has been defined and a sample frame of the target population has been selected, the designer can now prepare survey. The code below shows how a survey was designed using a population of lakes in the Northeast US. This sample frame is found in the package <code>spsurvey</code> and is not meant for use other than as an example.</p>
 <p><strong>NOTE</strong> To upload your own sample frame, you may use the code below to read a file as an sf_object which is required by spsurvey to design a survey.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="designing-a-survey.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
-<span id="cb1-2"><a href="designing-a-survey.html#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="designing-a-survey.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Example to read a shapefile</span></span>
-<span id="cb1-4"><a href="designing-a-survey.html#cb1-4" aria-hidden="true" tabindex="-1"></a>my_sample_frame <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;path to my sample frame.shp&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="designing-a-survey.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Load the spsurvey package</span></span>
-<span id="cb2-2"><a href="designing-a-survey.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(spsurvey)</span>
-<span id="cb2-3"><a href="designing-a-survey.html#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="designing-a-survey.html#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#To view the NE_Lakes sf object which contains the target population</span></span>
-<span id="cb2-5"><a href="designing-a-survey.html#cb2-5" aria-hidden="true" tabindex="-1"></a>NE_Lakes <span class="ot">&lt;-</span> spsurvey<span class="sc">::</span>NE_Lakes</span>
-<span id="cb2-6"><a href="designing-a-survey.html#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="designing-a-survey.html#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#Plot NE_Lakes </span></span>
-<span id="cb2-8"><a href="designing-a-survey.html#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(NE_Lakes, </span>
-<span id="cb2-9"><a href="designing-a-survey.html#cb2-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">pch =</span> <span class="dv">19</span>,</span>
-<span id="cb2-10"><a href="designing-a-survey.html#cb2-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">main=</span> <span class="st">&quot;NE Lakes&quot;</span>,</span>
-<span id="cb2-11"><a href="designing-a-survey.html#cb2-11" aria-hidden="true" tabindex="-1"></a>     <span class="at">key.width =</span> <span class="fu">lcm</span>(<span class="dv">3</span>))</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/">sf</a></span><span class="op">)</span>
+
+<span class="co">#Example to read a shapefile</span>
+<span class="va">my_sample_frame</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_read.html">st_read</a></span><span class="op">(</span><span class="st">"path to my sample frame.shp"</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">#Load the spsurvey package</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/USEPA/spsurvey">spsurvey</a></span><span class="op">)</span>
+
+<span class="co">#To view the NE_Lakes sf object which contains the target population</span>
+<span class="va">NE_Lakes</span> <span class="op">&lt;-</span> <span class="fu">spsurvey</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/spsurvey/man/NE_Lakes.html">NE_Lakes</a></span>
+
+<span class="co">#Plot NE_Lakes </span>
+<span class="fu"><a href="https://rdrr.io/pkg/spsurvey/man/plot.html">plot</a></span><span class="op">(</span><span class="va">NE_Lakes</span>, 
+     pch <span class="op">=</span> <span class="fl">19</span>,
+     main<span class="op">=</span> <span class="st">"NE Lakes"</span>,
+     key.width <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/layout.html">lcm</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="bookdownproj_files/figure-html/unnamed-chunk-2-1.png" width="672"></div>
 <p>For a state scale monitoring survey, it is generally accepted that sampling 50 sites gives sufficient confidence when calculating condition estimates. This sample size can vary depending on the size of the sample frame. Below we prepare an unstratified equal probability survey in which all lakes in the sample frame have the same chance of being selected regardless of size or other attributes.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="designing-a-survey.html#cb3-1" aria-hidden="true" tabindex="-1"></a>EQ_PROB <span class="ot">&lt;-</span> <span class="fu">grts</span>(</span>
-<span id="cb3-2"><a href="designing-a-survey.html#cb3-2" aria-hidden="true" tabindex="-1"></a>  NE_Lakes,</span>
-<span id="cb3-3"><a href="designing-a-survey.html#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">n_base =</span> <span class="dv">50</span></span>
-<span id="cb3-4"><a href="designing-a-survey.html#cb3-4" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-5"><a href="designing-a-survey.html#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="designing-a-survey.html#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
-<span id="cb3-7"><a href="designing-a-survey.html#cb3-7" aria-hidden="true" tabindex="-1"></a>  EQ_PROB,</span>
-<span id="cb3-8"><a href="designing-a-survey.html#cb3-8" aria-hidden="true" tabindex="-1"></a>  NE_Lakes,</span>
-<span id="cb3-9"><a href="designing-a-survey.html#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">main=</span> <span class="st">&quot;Base Sample Sites&quot;</span>,</span>
-<span id="cb3-10"><a href="designing-a-survey.html#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">pch =</span> <span class="dv">19</span>,</span>
-<span id="cb3-11"><a href="designing-a-survey.html#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">key.width =</span> <span class="fu">lcm</span>(<span class="dv">3</span>)</span>
-<span id="cb3-12"><a href="designing-a-survey.html#cb3-12" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-3-1.png" width="50%" /></p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">EQ_PROB</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/spsurvey/man/grts.html">grts</a></span><span class="op">(</span>
+  <span class="va">NE_Lakes</span>,
+  n_base <span class="op">=</span> <span class="fl">50</span>
+<span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/pkg/spsurvey/man/plot.html">plot</a></span><span class="op">(</span>
+  <span class="va">EQ_PROB</span>,
+  <span class="va">NE_Lakes</span>,
+  main<span class="op">=</span> <span class="st">"Base Sample Sites"</span>,
+  pch <span class="op">=</span> <span class="fl">19</span>,
+  key.width <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/layout.html">lcm</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span>
+<span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="bookdownproj_files/figure-html/unnamed-chunk-3-1.png" width="50%"></div>
 <p>Above, the plot displays the survey sites selected within the sample frame. Use the function <strong>spsurvey::sprbind()</strong> to obtain the information about each survey site.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="designing-a-survey.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Binds survey site </span></span>
-<span id="cb4-2"><a href="designing-a-survey.html#cb4-2" aria-hidden="true" tabindex="-1"></a>EQ_PROB_INFO <span class="ot">&lt;-</span> <span class="fu">sprbind</span>(EQ_PROB)</span>
-<span id="cb4-3"><a href="designing-a-survey.html#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="designing-a-survey.html#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#View the first 5 rows</span></span>
-<span id="cb4-5"><a href="designing-a-survey.html#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(EQ_PROB_INFO, <span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">#Binds survey site </span>
+<span class="va">EQ_PROB_INFO</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/spsurvey/man/sprbind.html">sprbind</a></span><span class="op">(</span><span class="va">EQ_PROB</span><span class="op">)</span>
+
+<span class="co">#View the first 5 rows</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">EQ_PROB_INFO</span>, <span class="fl">5</span><span class="op">)</span></code></pre></div>
 <pre><code>## Simple feature collection with 5 features and 14 fields
 ## Geometry type: POINT
 ## Dimension:     XY
-## Bounding box:  xmin: 1842226 ymin: 2305864 xmax: 2124136 ymax: 2374848
+## Bounding box:  xmin: 1889892 ymin: 2267943 xmax: 2053628 ymax: 2390183
 ## Projected CRS: NAD83 / Conus Albers
 ##    siteID siteuse replsite lon_WGS84 lat_WGS84 stratum wgt   ip caty      AREA
-## 1 Site-01    Base     None -69.96715  41.69618    None   4 0.25 None  5.499884
-## 2 Site-02    Base     None -71.68577  41.75769    None   4 0.25 None 70.520516
-## 3 Site-03    Base     None -73.31835  42.22854    None   4 0.25 None  3.550885
-## 4 Site-04    Base     None -73.19849  41.73313    None   4 0.25 None  6.299730
-## 5 Site-05    Base     None -70.68794  41.89119    None   4 0.25 None  7.698516
-##   AREA_CAT   ELEV ELEV_CAT LEGACY                geometry
-## 1    small   1.19      low   &lt;NA&gt; POINT (2124136 2369690)
-## 2    large 139.09     high   &lt;NA&gt; POINT (1985350 2339174)
-## 3    small 256.15     high   &lt;NA&gt; POINT (1842226 2357367)
-## 4    small 272.75     high   &lt;NA&gt; POINT (1864944 2305864)
-## 5    small  27.75      low   &lt;NA&gt; POINT (2060998 2374848)</code></pre>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="designing-a-survey.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Creates an sframe object of northeast lakes found in the spsurvey package</span></span>
-<span id="cb6-2"><a href="designing-a-survey.html#cb6-2" aria-hidden="true" tabindex="-1"></a>NE_Lakes <span class="ot">&lt;-</span> <span class="fu">sframe</span>(NE_Lakes)</span>
-<span id="cb6-3"><a href="designing-a-survey.html#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="designing-a-survey.html#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Plot NE_Lakes stratified by Area Category</span></span>
-<span id="cb6-5"><a href="designing-a-survey.html#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(NE_Lakes, </span>
-<span id="cb6-6"><a href="designing-a-survey.html#cb6-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">formula =</span> <span class="sc">~</span> AREA_CAT,</span>
-<span id="cb6-7"><a href="designing-a-survey.html#cb6-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">main=</span> <span class="st">&quot;NE Lakes by Area Category&quot;</span>,</span>
-<span id="cb6-8"><a href="designing-a-survey.html#cb6-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">pch =</span> <span class="dv">19</span>,</span>
-<span id="cb6-9"><a href="designing-a-survey.html#cb6-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">key.width =</span> <span class="fu">lcm</span>(<span class="dv">3</span>))</span>
-<span id="cb6-10"><a href="designing-a-survey.html#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-11"><a href="designing-a-survey.html#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">#Summarize NE_lakes by Area Category</span></span>
-<span id="cb6-12"><a href="designing-a-survey.html#cb6-12" aria-hidden="true" tabindex="-1"></a>summary <span class="ot">&lt;-</span> <span class="fu">summary</span>(NE_Lakes, <span class="at">formula =</span> <span class="sc">~</span> AREA_CAT)</span>
-<span id="cb6-13"><a href="designing-a-survey.html#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-14"><a href="designing-a-survey.html#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-15"><a href="designing-a-survey.html#cb6-15" aria-hidden="true" tabindex="-1"></a>propprob <span class="ot">&lt;-</span> <span class="fu">grts</span>(</span>
-<span id="cb6-16"><a href="designing-a-survey.html#cb6-16" aria-hidden="true" tabindex="-1"></a>  NE_Lakes,</span>
-<span id="cb6-17"><a href="designing-a-survey.html#cb6-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">n_base =</span> <span class="dv">50</span>,</span>
-<span id="cb6-18"><a href="designing-a-survey.html#cb6-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">seltype =</span> <span class="st">&quot;proportional&quot;</span>,</span>
-<span id="cb6-19"><a href="designing-a-survey.html#cb6-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">aux_var =</span> <span class="st">&quot;AREA&quot;</span></span>
-<span id="cb6-20"><a href="designing-a-survey.html#cb6-20" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb6-21"><a href="designing-a-survey.html#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-22"><a href="designing-a-survey.html#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
-<span id="cb6-23"><a href="designing-a-survey.html#cb6-23" aria-hidden="true" tabindex="-1"></a>  propprob,</span>
-<span id="cb6-24"><a href="designing-a-survey.html#cb6-24" aria-hidden="true" tabindex="-1"></a>  <span class="at">formula =</span> siteuse <span class="sc">~</span> AREA_CAT,</span>
-<span id="cb6-25"><a href="designing-a-survey.html#cb6-25" aria-hidden="true" tabindex="-1"></a>  NE_Lakes,</span>
-<span id="cb6-26"><a href="designing-a-survey.html#cb6-26" aria-hidden="true" tabindex="-1"></a>  <span class="at">pch =</span> <span class="dv">19</span>,</span>
-<span id="cb6-27"><a href="designing-a-survey.html#cb6-27" aria-hidden="true" tabindex="-1"></a>  <span class="at">key.width =</span> <span class="fu">lcm</span>(<span class="dv">3</span>)</span>
-<span id="cb6-28"><a href="designing-a-survey.html#cb6-28" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-5-1.png" width="50%" /><img src="bookdownproj_files/figure-html/unnamed-chunk-5-2.png" width="50%" /><img src="bookdownproj_files/figure-html/unnamed-chunk-5-3.png" width="50%" /></p>
+## 1 Site-01    Base     None -72.80922  41.31303    None   4 0.25 None  1.467758
+## 2 Site-02    Base     None -72.22505  41.62353    None   4 0.25 None  2.902965
+## 3 Site-03    Base     None -70.72533  42.04078    None   4 0.25 None 12.311900
+## 4 Site-04    Base     None -72.43644  42.05235    None   4 0.25 None  1.374411
+## 5 Site-05    Base     None -72.83123  41.89970    None   4 0.25 None 12.496624
+##   AREA_CAT  ELEV ELEV_CAT        LEGACY                geometry
+## 1    small 53.98      low          &lt;NA&gt; POINT (1907514 2267943)
+## 2    small 95.42      low          &lt;NA&gt; POINT (1945966 2313484)
+## 3    large 19.56      low          &lt;NA&gt; POINT (2053628 2390183)
+## 4    small 75.70      low LEGACY_SITE_1 POINT (1917247 2355684)
+## 5    large 89.77      low          &lt;NA&gt; POINT (1889892 2331214)</code></pre>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">#Creates an sframe object of northeast lakes found in the spsurvey package</span>
+<span class="va">NE_Lakes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/spsurvey/man/sframe.html">sframe</a></span><span class="op">(</span><span class="va">NE_Lakes</span><span class="op">)</span>
+
+<span class="co">#Plot NE_Lakes stratified by Area Category</span>
+<span class="fu"><a href="https://rdrr.io/pkg/spsurvey/man/plot.html">plot</a></span><span class="op">(</span><span class="va">NE_Lakes</span>, 
+     formula <span class="op">=</span> <span class="op">~</span> <span class="va">AREA_CAT</span>,
+     main<span class="op">=</span> <span class="st">"NE Lakes by Area Category"</span>,
+     pch <span class="op">=</span> <span class="fl">19</span>,
+     key.width <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/layout.html">lcm</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span><span class="op">)</span>
+
+<span class="co">#Summarize NE_lakes by Area Category</span>
+<span class="va">summary</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/spsurvey/man/summary.html">summary</a></span><span class="op">(</span><span class="va">NE_Lakes</span>, formula <span class="op">=</span> <span class="op">~</span> <span class="va">AREA_CAT</span><span class="op">)</span>
+
+
+<span class="va">propprob</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/spsurvey/man/grts.html">grts</a></span><span class="op">(</span>
+  <span class="va">NE_Lakes</span>,
+  n_base <span class="op">=</span> <span class="fl">50</span>,
+  seltype <span class="op">=</span> <span class="st">"proportional"</span>,
+  aux_var <span class="op">=</span> <span class="st">"AREA"</span>
+<span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/pkg/spsurvey/man/plot.html">plot</a></span><span class="op">(</span>
+  <span class="va">propprob</span>,
+  formula <span class="op">=</span> <span class="va">siteuse</span> <span class="op">~</span> <span class="va">AREA_CAT</span>,
+  <span class="va">NE_Lakes</span>,
+  pch <span class="op">=</span> <span class="fl">19</span>,
+  key.width <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/layout.html">lcm</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span>
+<span class="op">)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-5-1.png" width="50%"><img src="bookdownproj_files/figure-html/unnamed-chunk-5-2.png" width="50%"><img src="bookdownproj_files/figure-html/unnamed-chunk-5-3.png" width="50%"></p>
 <p>10 acres</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="designing-a-survey.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Create a vector defining stratified sample size</span></span>
-<span id="cb7-2"><a href="designing-a-survey.html#cb7-2" aria-hidden="true" tabindex="-1"></a>strata_n <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">small =</span> <span class="dv">35</span>, <span class="at">large =</span> <span class="dv">15</span>)</span>
-<span id="cb7-3"><a href="designing-a-survey.html#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="designing-a-survey.html#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Select a stratified GRTS sample </span></span>
-<span id="cb7-5"><a href="designing-a-survey.html#cb7-5" aria-hidden="true" tabindex="-1"></a>STRAT_PROB <span class="ot">&lt;-</span> <span class="fu">grts</span>(</span>
-<span id="cb7-6"><a href="designing-a-survey.html#cb7-6" aria-hidden="true" tabindex="-1"></a>  NE_Lakes,</span>
-<span id="cb7-7"><a href="designing-a-survey.html#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">n_base =</span> strata_n,</span>
-<span id="cb7-8"><a href="designing-a-survey.html#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">stratum_var =</span> <span class="st">&quot;AREA_CAT&quot;</span></span>
-<span id="cb7-9"><a href="designing-a-survey.html#cb7-9" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb7-10"><a href="designing-a-survey.html#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-11"><a href="designing-a-survey.html#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
-<span id="cb7-12"><a href="designing-a-survey.html#cb7-12" aria-hidden="true" tabindex="-1"></a>  STRAT_PROB,</span>
-<span id="cb7-13"><a href="designing-a-survey.html#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">formula =</span> siteuse <span class="sc">~</span> AREA_CAT,</span>
-<span id="cb7-14"><a href="designing-a-survey.html#cb7-14" aria-hidden="true" tabindex="-1"></a>  NE_Lakes,</span>
-<span id="cb7-15"><a href="designing-a-survey.html#cb7-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">pch =</span> <span class="dv">19</span>,</span>
-<span id="cb7-16"><a href="designing-a-survey.html#cb7-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">key.width =</span> <span class="fu">lcm</span>(<span class="dv">3</span>)</span>
-<span id="cb7-17"><a href="designing-a-survey.html#cb7-17" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-6-1.png" width="50%" /><img src="bookdownproj_files/figure-html/unnamed-chunk-6-2.png" width="50%" /></p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">#Create a vector defining stratified sample size</span>
+<span class="va">strata_n</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>small <span class="op">=</span> <span class="fl">35</span>, large <span class="op">=</span> <span class="fl">15</span><span class="op">)</span>
+
+<span class="co">#Select a stratified GRTS sample </span>
+<span class="va">STRAT_PROB</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/spsurvey/man/grts.html">grts</a></span><span class="op">(</span>
+  <span class="va">NE_Lakes</span>,
+  n_base <span class="op">=</span> <span class="va">strata_n</span>,
+  stratum_var <span class="op">=</span> <span class="st">"AREA_CAT"</span>
+<span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/pkg/spsurvey/man/plot.html">plot</a></span><span class="op">(</span>
+  <span class="va">STRAT_PROB</span>,
+  formula <span class="op">=</span> <span class="va">siteuse</span> <span class="op">~</span> <span class="va">AREA_CAT</span>,
+  <span class="va">NE_Lakes</span>,
+  pch <span class="op">=</span> <span class="fl">19</span>,
+  key.width <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/layout.html">lcm</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span>
+<span class="op">)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-6-1.png" width="50%"><img src="bookdownproj_files/figure-html/unnamed-chunk-6-2.png" width="50%"></p>
 
 </div>
-            </section>
+  <div class="chapter-nav">
+<div class="prev"><a href="background.html">Background</a></div>
+<div class="next"><a href="weights.html"><span class="header-section-number">2</span> Weights</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#designing-a-survey"><span class="header-section-number">1</span> Designing a Survey</a></li></ul>
 
-          </div>
-        </div>
-      </div>
-<a href="background.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="weights.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
-    </div>
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/gstillings-EPA/Survey_Guidance/blob/master/03-survey_design.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/gstillings-EPA/Survey_Guidance/edit/master/03-survey_design.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Guidance for Implementing a Statistical Survey</strong>" was written by Garrett Stillings. It was last built on 2021-09-29.</p>
   </div>
-<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
-<script>
-gitbook.require(["gitbook"], function(gitbook) {
-gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/gstillings-EPA/Survey_Guidance/edit/master/03-survey_design.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": "https://github.com/gstillings-EPA/Survey_Guidance/blob/master/03-survey_design.Rmd",
-"text": null
-},
-"download": null,
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "section"
-}
-});
-});
-</script>
 
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
 </body>
-
 </html>
